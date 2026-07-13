@@ -527,8 +527,8 @@ function PlinkoGame() {
                             <div className="fixed-widget debug-widget fade-in-scale" ref={debugWidgetRef}>
                                 <div className="widget-header debug-widget-header" onMouseDown={handleDebugDragStart}>
                                     <div className="widget-title">
-                                        <BugOutlined style={{ color: '#00e701', fontSize: 18 }} />
-                                        <span style={{ color: '#00e701' }}>FAIRNESS DEBUG</span>
+                                        <BugOutlined style={{ color: 'var(--primary)', fontSize: 18 }} />
+                                        <span style={{ color: 'var(--primary)' }}>FAIRNESS DEBUG</span>
                                     </div>
                                     <div className="widget-actions">
                                         <button className="widget-btn-icon" onMouseDown={(e) => e.stopPropagation()} onClick={() => setIsDebugMode(false)}>
@@ -603,7 +603,7 @@ function PlinkoGame() {
                                         type="text"
                                         icon={<BugOutlined />}
                                         className={`control-btn ${isDebugMode ? 'active-debug' : ''}`}
-                                        style={{ color: isDebugMode ? '#00e701' : undefined }}
+                                        style={{ color: isDebugMode ? 'var(--primary)' : undefined }}
                                         onClick={() => setIsDebugMode(!isDebugMode)}
                                     />
                                 </Tooltip>
@@ -828,7 +828,7 @@ function PlinkoGame() {
             <Modal
                 title={
                     <Space>
-                        <SafetyCertificateOutlined style={{ color: '#00e701' }} />
+                        <SafetyCertificateOutlined style={{ color: 'var(--primary)' }} />
                         <span>Provably Fair</span>
                     </Space>
                 }

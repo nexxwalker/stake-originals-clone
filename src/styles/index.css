@@ -1,37 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
 
-/* ===== CSS Variables - Exact Stake Colors ===== */
+/* ===== Arcade blue-cyan color system ===== */
 :root {
-    --bg-primary: #1a2c38;
-    --bg-secondary: #0f212e;
-    --bg-tertiary: #2f4553;
-    --bg-input: #0f212e;
+    --bg-app: #071426;
+    --bg-header: #09192b;
+    --bg-sidebar: #0b1b2e;
+    --bg-main: #10243a;
+    --surface-1: #132a43;
+    --surface-2: #183451;
+    --surface-3: #1e3e5f;
+    --surface-hover: #234a70;
 
-    --accent-green: #00e701;
-    --accent-green-hover: #00c700;
-    --accent-blue: #1475e1;
-    --accent-orange: #f7931a;
-    --accent-yellow: #ffc107;
-    --accent-red: #ed4245;
-    --accent-purple: #9c27b0;
+    --bg-primary: var(--bg-main);
+    --bg-secondary: var(--bg-sidebar);
+    --bg-tertiary: var(--surface-2);
+    --bg-input: var(--surface-1);
 
-    --text-primary: #ffffff;
-    --text-secondary: #b1bad3;
-    --text-muted: #5f6368;
+    --border-subtle: #294763;
+    --border-default: #335a78;
+    --border-strong: #43789b;
+    --border-color: var(--border-subtle);
 
-    --border-color: #2f4553;
+    --text-primary: #f7fbff;
+    --text-secondary: #b7c9d9;
+    --text-muted: #7f9aaf;
+    --text-disabled: #526b7d;
+
+    --primary: #2f8cff;
+    --primary-hover: #57a5ff;
+    --primary-active: #1e6fd6;
+    --primary-soft: rgba(47, 140, 255, 0.14);
+    --cyan: #30d5ff;
+    --cyan-soft: rgba(48, 213, 255, 0.14);
+    --hero-overlay: #031029;
+    --hero-accent: #58b9ff;
+    --accent-warm: #ffb21c;
+    --accent-warm-hover: #ffc54a;
+    --accent-orange: #ff7a1a;
+    --success: #35d06f;
+    --success-soft: rgba(53, 208, 111, 0.14);
+    --danger: #ff4d5f;
+    --danger-soft: rgba(255, 77, 95, 0.14);
+
+    --accent-blue: var(--primary);
+    --accent-green: var(--success);
+    --accent-green-hover: #26ad58;
+    --accent-yellow: var(--accent-warm);
+    --accent-red: var(--danger);
+    --accent-purple: #608dff;
+
+    --shadow-sm: 0 8px 24px rgba(0, 8, 20, 0.22);
+    --shadow-md: 0 10px 30px rgba(0, 10, 30, 0.28);
+    --shadow-lg: 0 16px 40px rgba(0, 8, 20, 0.34);
 
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
     --radius-full: 9999px;
-
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
-
     --transition-fast: 0.15s ease;
     --transition-normal: 0.3s ease;
 }
@@ -137,8 +163,9 @@ body {
 }
 
 .search-input-wrapper:focus-within {
-    border-color: var(--border-color);
-    background: var(--bg-primary);
+    border-color: var(--primary);
+    background: var(--surface-1);
+    box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
 .search-input {
@@ -184,10 +211,10 @@ body {
 }
 
 .btn-register {
-    background: var(--accent-blue);
-    color: white;
+    background: var(--primary);
+    color: var(--text-primary);
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(20, 117, 225, 0.2);
+    box-shadow: 0 2px 8px var(--primary-soft);
 }
 
 .btn-register:hover {
@@ -206,8 +233,9 @@ body {
 }
 
 .header-home .search-input-wrapper:focus-within {
-    border-color: var(--accent-blue);
-    background: var(--bg-primary);
+    border-color: var(--primary);
+    background: var(--surface-1);
+    box-shadow: 0 0 0 3px var(--primary-soft);
 }
 
 /* ===== Header Wallet ===== */
@@ -404,8 +432,8 @@ body {
 }
 
 .wallet-deposit-btn {
-    background: var(--accent-green);
-    color: #000;
+    background: var(--primary);
+    color: var(--text-primary);
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -439,9 +467,9 @@ body {
 }
 
 .wallet-quick-btn:hover {
-    background: var(--bg-primary);
-    color: var(--accent-green);
-    border-color: var(--accent-green);
+    background: var(--surface-1);
+    color: var(--primary-hover);
+    border-color: var(--primary);
 }
 
 .wallet-reset-btn {
@@ -595,7 +623,7 @@ body {
 }
 
 .wallet-toast-win {
-    border-color: rgba(0, 231, 1, 0.4);
+    border-color: rgba(53, 208, 111, 0.4);
 }
 
 .wallet-toast-loss {
@@ -633,7 +661,7 @@ body {
 }
 
 .wallet-toast-win .wallet-toast-desc {
-    color: #00e701;
+    color: var(--success);
 }
 
 .wallet-toast-loss .wallet-toast-desc {
@@ -753,9 +781,9 @@ body {
 }
 
 .switch-btn.active {
-    background: var(--bg-tertiary);
-    color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: var(--primary-soft);
+    color: var(--text-primary);
+    box-shadow: inset 3px 0 0 var(--primary);
 }
 
 .switch-btn:hover:not(.active) {
@@ -820,13 +848,14 @@ body {
 }
 
 .nav-item:hover {
-    background: var(--bg-tertiary);
+    background: var(--surface-hover);
     color: var(--text-primary);
 }
 
 .nav-item.active {
-    background: var(--bg-tertiary);
+    background: var(--primary-soft);
     color: var(--text-primary);
+    box-shadow: inset 3px 0 0 var(--primary);
 }
 
 .nav-icon {
@@ -1091,10 +1120,10 @@ body {
 .bet-button {
     width: 100%;
     padding: 14px;
-    background: var(--accent-green);
+    background: var(--primary);
     border: none;
     border-radius: var(--radius-md);
-    color: #000;
+    color: var(--text-primary);
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
@@ -1104,8 +1133,8 @@ body {
 }
 
 .bet-button:hover {
-    background: var(--accent-green-hover);
-    box-shadow: 0 4px 20px rgba(0, 231, 1, 0.35);
+    background: var(--primary-hover);
+    box-shadow: 0 4px 20px var(--primary-soft);
 }
 
 .bet-button:active {
@@ -1225,13 +1254,13 @@ body {
 }
 
 .history-pill.medium {
-    background: rgba(0, 231, 1, 0.15);
-    color: var(--accent-green);
+    background: var(--primary-soft);
+    color: var(--primary-hover);
 }
 
 .history-pill.high {
-    background: rgba(0, 231, 1, 0.2);
-    color: var(--accent-green);
+    background: rgba(47, 140, 255, 0.2);
+    color: var(--primary-hover);
 }
 
 .history-pill.mega {

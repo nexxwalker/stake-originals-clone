@@ -85,7 +85,7 @@ function PlayerBets({ multiplier, phase, onPlayerCashout, userBetData }) {
                 onClick={() => setExpanded(!expanded)}
             >
                 <Space>
-                    <Badge status="processing" color="#00e701" />
+                    <Badge status="processing" color="var(--success)" />
                     <UserOutlined />
                     <Text strong>{playerCount + (userBetData ? 1 : 0)}</Text>
                 </Space>

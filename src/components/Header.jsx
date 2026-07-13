@@ -171,7 +171,7 @@ function Header() {
                                                 <BtcIcon size={20} fontSize={11} />
                                             )}
                                             {toast.type === 'win' && (
-                                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#00e701" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="var(--success)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <polyline points="20 6 9 17 4 12" />
                                                 </svg>
                                             )}

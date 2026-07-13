@@ -634,7 +634,7 @@ function MinesGame() {
                             <div className="form-group" style={{ marginTop: 'auto' }}>
                                 <div className="form-header">
                                     <label className="form-label" style={{ margin: 0 }}>Total Profit ({currentMultiplier.toFixed(2)}×)</label>
-                                    <span style={{ color: revealedTiles.length > 0 ? '#00e701' : 'var(--text-secondary)' }}>
+                                    <span style={{ color: revealedTiles.length > 0 ? 'var(--success)' : 'var(--text-secondary)' }}>
                                         ₿{(potentialWin - betAmount).toFixed(8)}
                                     </span>
                                 </div>
@@ -695,8 +695,8 @@ function MinesGame() {
                         <div className="fixed-widget debug-widget fade-in-scale" ref={debugWidgetRef}>
                             <div className="widget-header debug-widget-header" onMouseDown={handleDebugDragStart}>
                                 <div className="widget-title">
-                                    <BugOutlined style={{ color: '#00e701', fontSize: 18 }} />
-                                    <span style={{ color: '#00e701' }}>FAIRNESS DEBUG</span>
+                                    <BugOutlined style={{ color: 'var(--primary)', fontSize: 18 }} />
+                                    <span style={{ color: 'var(--primary)' }}>FAIRNESS DEBUG</span>
                                 </div>
                                 <div className="widget-actions">
                                     <button className="widget-btn-icon" onMouseDown={(e) => e.stopPropagation()} onClick={() => setIsDebugMode(false)}>
@@ -751,7 +751,7 @@ function MinesGame() {
                                     type="text"
                                     icon={<BugOutlined />}
                                     className={`control-btn ${isDebugMode ? 'active-debug' : ''}`}
-                                    style={{ color: isDebugMode ? '#00e701' : undefined }}
+                                    style={{ color: isDebugMode ? 'var(--primary)' : undefined }}
                                     onClick={() => setIsDebugMode(!isDebugMode)}
                                 />
                             </Tooltip>
@@ -767,7 +767,7 @@ function MinesGame() {
             <Modal
                 title={
                     <Space>
-                        <SafetyCertificateOutlined style={{ color: '#00e701' }} />
+                        <SafetyCertificateOutlined style={{ color: 'var(--primary)' }} />
                         <span>Provably Fair</span>
                     </Space>
                 }
@@ -846,7 +846,7 @@ function MinesGame() {
                     <Button onClick={handleRotateSeed} style={{ flex: 1, background: '#2f4553', border: 'none', color: '#fff' }}>
                         <ReloadOutlined /> Rotate Seed
                     </Button>
-                    <Button type="primary" onClick={() => setFairnessModalOpen(false)} style={{ flex: 1, background: '#00e701', border: 'none', color: '#000', fontWeight: 'bold' }}>
+                    <Button type="primary" onClick={() => setFairnessModalOpen(false)} style={{ flex: 1, background: 'var(--primary)', border: 'none', color: '#000', fontWeight: 'bold' }}>
                         Close
                     </Button>
                 </div>

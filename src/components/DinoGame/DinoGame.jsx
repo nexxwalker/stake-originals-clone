@@ -59,7 +59,7 @@ const { Text, Title, Paragraph } = Typography;
 
 // Difficulty presets
 const DIFFICULTIES = {
-    easy: { label: 'Easy', survivalChance: 0.85, multiplierPerJump: 1.15, color: '#00e701' },
+    easy: { label: 'Easy', survivalChance: 0.85, multiplierPerJump: 1.15, color: '#35d06f' },
     medium: { label: 'Medium', survivalChance: 0.65, multiplierPerJump: 1.40, color: '#f7931a' },
     hard: { label: 'Hard', survivalChance: 0.45, multiplierPerJump: 1.90, color: '#ed4245' },
 };
@@ -695,7 +695,7 @@ function DinoGame() {
                             </div>
                             <div className="difficulty-info">
                                 <Text type="secondary" style={{ fontSize: 11 }}>
-                                    Provable Fairness: <span style={{ color: '#00e701', fontWeight: 'bold' }}>99.00%</span> RTP
+                                    Provable Fairness: <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>99.00%</span> RTP
                                 </Text>
                             </div>
                         </div>
@@ -840,8 +840,8 @@ function DinoGame() {
                             <div className="fixed-widget debug-widget fade-in-scale" ref={debugWidgetRef}>
                                 <div className="widget-header debug-widget-header" onMouseDown={handleDebugDragStart}>
                                     <div className="widget-title">
-                                        <BugOutlined style={{ color: '#00e701', fontSize: 18 }} />
-                                        <span style={{ color: '#00e701' }}>FAIRNESS DEBUG</span>
+                                        <BugOutlined style={{ color: 'var(--primary)', fontSize: 18 }} />
+                                        <span style={{ color: 'var(--primary)' }}>FAIRNESS DEBUG</span>
                                     </div>
                                     <div className="widget-actions">
                                         <button className="widget-btn-icon" onMouseDown={(e) => e.stopPropagation()} onClick={() => setIsDebugMode(false)}>
@@ -865,7 +865,7 @@ function DinoGame() {
                                     <div className="debug-target">
                                         DIFFICULTY: <span className="target-bin">{DIFFICULTIES[difficulty].label}</span>
                                         <div style={{ fontSize: 13, color: '#fff', marginTop: 4, textShadow: 'none' }}>
-                                            Survival Chance: <span style={{ color: '#00e701' }}>{Math.round(DIFFICULTIES[difficulty].survivalChance * 100)}%</span>
+                                            Survival Chance: <span style={{ color: 'var(--primary)' }}>{Math.round(DIFFICULTIES[difficulty].survivalChance * 100)}%</span>
                                         </div>
                                     </div>
 
@@ -877,7 +877,7 @@ function DinoGame() {
                                                     Roll: <span style={{ color: '#00b4d8' }}>{(debugData.roll * 100).toFixed(2)}</span>
                                                 </span>
                                                 <span style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>
-                                                    Status: <span style={{ color: debugData.survived ? '#00e701' : '#ff4d4f' }}>
+                                                    Status: <span style={{ color: debugData.survived ? 'var(--success)' : '#ff4d4f' }}>
                                                         {debugData.survived ? 'SURVIVE' : 'CRASH'}
                                                     </span>
                                                 </span>
@@ -915,7 +915,7 @@ function DinoGame() {
                                     <Button type="text" icon={<SoundOutlined />} className={`control-btn ${!soundEnabled ? 'muted' : ''}`} onClick={() => setSoundEnabled(!soundEnabled)} />
                                 </Tooltip>
                                 <Tooltip title="Fairness Debug">
-                                    <Button type="text" icon={<BugOutlined style={{ color: isDebugMode ? '#00e701' : undefined }} />} className={`control-btn ${isDebugMode ? 'active' : ''}`} onClick={() => setIsDebugMode(!isDebugMode)} />
+                                    <Button type="text" icon={<BugOutlined style={{ color: isDebugMode ? 'var(--primary)' : undefined }} />} className={`control-btn ${isDebugMode ? 'active' : ''}`} onClick={() => setIsDebugMode(!isDebugMode)} />
                                 </Tooltip>
                             </Space>
                             <span className="logo" style={{ color: 'var(--text-primary)' }}>Stake</span>
@@ -1080,7 +1080,7 @@ function DinoGame() {
             <Modal
                 title={
                     <Space>
-                        <SafetyCertificateOutlined style={{ color: '#00e701' }} />
+                        <SafetyCertificateOutlined style={{ color: 'var(--primary)' }} />
                         <span>Provably Fair</span>
                     </Space>
                 }
@@ -1136,7 +1136,7 @@ function DinoGame() {
                 <div className="fairness-item">
                     <span className="fairness-label">Difficulty</span>
                     <div className="fairness-value">
-                        <Tag color={DIFFICULTIES[difficulty].color === '#00e701' ? 'success' : DIFFICULTIES[difficulty].color === '#f7931a' ? 'warning' : 'error'}>
+                        <Tag color={DIFFICULTIES[difficulty].color === '#35d06f' ? 'success' : DIFFICULTIES[difficulty].color === '#f7931a' ? 'warning' : 'error'}>
                             {DIFFICULTIES[difficulty].label} ({Math.round(DIFFICULTIES[difficulty].survivalChance * 100)}%)
                         </Tag>
                     </div>
@@ -1160,7 +1160,7 @@ function DinoGame() {
                         <div className="fairness-item">
                             <span className="fairness-label">Hash</span>
                             <div className="fairness-value">
-                                <Text style={{ fontSize: 10, wordBreak: 'break-all', color: '#00e701' }}>
+                                <Text style={{ fontSize: 10, wordBreak: 'break-all', color: 'var(--primary)' }}>
                                     {revealedSeed.serverSeedHash?.slice(0, 20)}...
                                 </Text>
                             </div>

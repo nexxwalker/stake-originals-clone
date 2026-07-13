@@ -45,7 +45,7 @@
     display: flex;
     gap: 4px;
     padding: 4px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 10px;
     border: none;
     transform: translateY(-4px);
@@ -58,7 +58,7 @@
     padding: 10px 16px;
     border: none;
     border-radius: 6px;
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-secondary);
     font-size: 14px;
     font-weight: 600;
@@ -69,20 +69,20 @@
 
 .bet-mode-tab:hover:not(:disabled):not(.active) {
     color: var(--text-primary);
-    background: #3d5564;
+    background: var(--surface-hover);
 }
 
 .bet-mode-tab.active {
-    background: #00e701;
+    background: var(--primary);
     color: #000;
     font-weight: 700;
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 #006601, 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 var(--primary-active), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .bet-mode-tab.active:active {
     transform: translateY(0);
-    box-shadow: 0 0 0 #006601;
+    box-shadow: 0 0 0 var(--primary-active);
 }
 
 .betting-panel-3d .bet-form {
@@ -124,7 +124,7 @@
     flex: 1;
     border-radius: 8px;
     border: none;
-    background: #2a3f4d;
+    background: var(--surface-2);
     transform: translateY(-4px);
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.15s ease;
@@ -132,7 +132,7 @@
 
 .betting-panel-3d .ant-input-number-group-addon,
 .betting-panel-3d .ant-input-number-addon {
-    background: #2a3f4d !important;
+    background: var(--surface-2) !important;
     border: none !important;
     transform: translateY(-4px);
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -181,14 +181,14 @@
 .betting-panel-3d .ant-input-number:focus,
 .betting-panel-3d .ant-input-number-focused {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .betting-panel-3d .ant-input-number-focused+.ant-input-number-group-addon,
 .betting-panel-3d .ant-input-number-group-wrapper:focus-within .ant-input-number-group-addon,
 .betting-panel-3d .ant-input-number-group:focus-within .ant-input-number-group-addon {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .betting-panel-3d .ant-input-number:disabled {
@@ -211,7 +211,7 @@
 .betting-panel-3d .ant-btn-group .ant-btn {
     border-radius: 0;
     border: none;
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-primary);
     font-weight: 600;
     font-size: 13px;
@@ -232,12 +232,12 @@
 }
 
 .betting-panel-3d .ant-btn-group .ant-btn:active:not(:disabled) {
-    background: #2a4f3d;
-    color: #00e701;
+    background: var(--primary-soft);
+    color: var(--primary);
 }
 
 .betting-panel-3d .ant-btn-group .ant-btn:hover:not(:disabled) {
-    background: #3d5564;
+    background: var(--surface-hover);
     color: #ffffff;
 }
 
@@ -259,16 +259,16 @@
 }
 
 .betting-panel-3d .crash-switch.ant-switch-checked {
-    background: #00e701;
+    background: var(--primary);
 }
 
 .betting-panel-3d .crash-switch:hover:not(.ant-switch-disabled) {
-    background: #00e701;
+    background: var(--primary);
 }
 
 /* Profit Display 3D */
 .profit-card-3d {
-    background: #1a2c38;
+    background: var(--surface-1);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 12px;
@@ -280,7 +280,7 @@
 .betting-panel-3d .bet-button {
     width: 100%;
     padding: 16px;
-    background: #00e701;
+    background: var(--primary);
     border: none;
     border-radius: 8px;
     color: #000;
@@ -294,20 +294,20 @@
     align-items: center;
     justify-content: center;
     transform: translateY(-6px);
-    box-shadow: 0 6px 0 #006601, 0 6px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 0 var(--primary-active), 0 6px 10px rgba(0, 0, 0, 0.3);
     margin-top: 4px;
     /* Space for the shadow */
 }
 
 .betting-panel-3d .bet-button:hover:not(:disabled) {
-    background: #00ef01;
+    background: var(--primary-hover);
     transform: translateY(-4px);
-    box-shadow: 0 4px 0 #006601, 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 0 var(--primary-active), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .betting-panel-3d .bet-button:active:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 #006601, 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 0 var(--primary-active), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .betting-panel-3d .bet-button:disabled {
@@ -414,7 +414,7 @@
 }
 
 .game-history-bar .view-all-btn:hover {
-    background: #3d5564 !important;
+    background: var(--surface-hover) !important;
     color: var(--text-primary) !important;
 }
 
@@ -609,7 +609,7 @@
 }
 
 .crash-game .control-btn-antd:hover {
-    background: #3d5564 !important;
+    background: var(--surface-hover) !important;
     color: var(--text-primary) !important;
 }
 
@@ -660,7 +660,7 @@
     right: 32px;
     bottom: 32px;
     width: 20rem;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 8px;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -729,7 +729,7 @@
 }
 
 .widget-btn-icon:hover {
-    background: #2a3f4d;
+    background: var(--surface-2);
 }
 
 .widget-btn-icon:active {
@@ -774,7 +774,7 @@
 .profit-divider {
     width: 2px;
     margin: 0 16px;
-    background-color: #2a3f4d;
+    background-color: var(--surface-2);
 }
 
 .profit-stats {
@@ -1042,7 +1042,7 @@
     height: 40px !important;
     border-radius: 8px !important;
     border: none !important;
-    background: #2a3f4d !important;
+    background: var(--surface-2) !important;
     color: var(--text-secondary) !important;
     cursor: pointer;
     transition: all 0.15s ease !important;
@@ -1054,7 +1054,7 @@
 }
 
 .footer-btn:hover {
-    background: #3d5564 !important;
+    background: var(--surface-hover) !important;
     color: var(--text-primary) !important;
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -1166,7 +1166,7 @@
 }
 
 .player-bet-row.cashed-out {
-    background: rgba(0, 231, 1, 0.05);
+    background: rgba(53, 208, 111, 0.05);
 }
 
 .player-bet-row .player-info {
@@ -1210,7 +1210,7 @@
 }
 
 .player-bet-row .bet-amount .profit {
-    color: #00e701 !important;
+    color: var(--success) !important;
     font-weight: 600;
 }
 
@@ -1325,7 +1325,7 @@
 }
 
 .fairness-modal .ant-modal-header {
-    background: linear-gradient(135deg, #1a2c38, #243a48) !important;
+    background: linear-gradient(135deg, var(--surface-1), #243a48) !important;
     border-bottom: none !important;
     padding: 20px 24px !important;
 }
@@ -1349,15 +1349,15 @@
 }
 
 .fairness-header {
-    background: linear-gradient(135deg, rgba(0, 231, 1, 0.1), rgba(0, 231, 1, 0.05));
-    border: 1px solid rgba(0, 231, 1, 0.2);
+    background: linear-gradient(135deg, rgba(47, 140, 255, 0.1), rgba(47, 140, 255, 0.05));
+    border: 1px solid rgba(47, 140, 255, 0.2);
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 24px;
 }
 
 .fairness-header h5 {
-    color: #00e701 !important;
+    color: var(--primary) !important;
     margin: 0 0 8px 0 !important;
     font-size: 16px !important;
 }
@@ -1370,7 +1370,7 @@
 }
 
 .fairness-item {
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 10px;
     padding: 14px 16px;
     margin-bottom: 10px;
@@ -1414,7 +1414,7 @@
 }
 
 .fairness-value .ant-typography-copy {
-    color: #00e701 !important;
+    color: var(--primary) !important;
     margin-left: 4px !important;
 }
 
@@ -1431,15 +1431,15 @@
     font-size: 16px !important;
     font-weight: 600 !important;
     border-radius: 10px !important;
-    background: linear-gradient(135deg, #00e701, #00c801) !important;
+    background: linear-gradient(135deg, var(--primary), var(--primary-hover)) !important;
     border: none !important;
-    box-shadow: 0 4px 15px rgba(0, 231, 1, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(47, 140, 255, 0.3) !important;
     transition: all 0.3s ease !important;
 }
 
 .fairness-verify-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 231, 1, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(47, 140, 255, 0.4) !important;
 }
 
 /* ===== Fullscreen Mode ===== */
@@ -1462,7 +1462,7 @@
 
 /* Ant Design Overrides for Dark Theme */
 .ant-drawer-header {
-    background: #1a2c38 !important;
+    background: var(--surface-1) !important;
 }
 
 .ant-drawer-body {
@@ -1474,7 +1474,7 @@
 }
 
 .ant-modal-header {
-    background: #1a2c38 !important;
+    background: var(--surface-1) !important;
     border-bottom: 1px solid #2f4553 !important;
 }
 
@@ -1489,8 +1489,8 @@
 }
 
 .ant-radio-button-wrapper-checked {
-    background: #00e701 !important;
-    border-color: #00e701 !important;
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
     color: #000 !important;
 }
 
@@ -1514,7 +1514,7 @@
     gap: 10px;
     padding: 10px 18px;
     border-radius: 8px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border: 1px solid #2f4553;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     pointer-events: auto;
@@ -1540,7 +1540,7 @@
 }
 
 .crash-toast-win {
-    border-color: rgba(0, 231, 1, 0.4);
+    border-color: rgba(53, 208, 111, 0.4);
 }
 
 .crash-toast-loss {
@@ -1609,7 +1609,7 @@
 }
 
 .crash-toast-win .crash-toast-desc {
-    color: #00e701;
+    color: var(--primary);
 }
 
 .crash-toast-loss .crash-toast-desc {

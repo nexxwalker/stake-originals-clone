@@ -6,62 +6,61 @@ import { WalletProvider } from './context/WalletContext'
 import App from './App'
 import './styles/index.css'
 
-// Custom dark theme for Stake
-const stakeTheme = {
+const arcadeTheme = {
     algorithm: theme.darkAlgorithm,
     token: {
-        colorPrimary: '#00e701',
-        colorBgBase: '#0f212e',
-        colorBgContainer: '#1a2c38',
-        colorBgElevated: '#2f4553',
-        colorBorder: '#2f4553',
-        colorText: '#ffffff',
-        colorTextSecondary: '#b1bad3',
-        colorSuccess: '#00e701',
-        colorWarning: '#f7931a',
-        colorError: '#ed4245',
-        colorInfo: '#1475e1',
+        colorPrimary: '#2f8cff',
+        colorBgBase: '#071426',
+        colorBgContainer: '#132a43',
+        colorBgElevated: '#183451',
+        colorBorder: '#294763',
+        colorText: '#f7fbff',
+        colorTextSecondary: '#b7c9d9',
+        colorSuccess: '#35d06f',
+        colorWarning: '#ffb21c',
+        colorError: '#ff4d5f',
+        colorInfo: '#30d5ff',
         borderRadius: 8,
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     },
     components: {
         Button: {
-            primaryColor: '#000000',
-            colorPrimaryHover: '#00c700',
+            primaryColor: '#f7fbff',
+            colorPrimaryHover: '#57a5ff',
         },
         Input: {
-            colorBgContainer: '#0f212e',
-            colorBorder: '#2f4553',
-            activeBorderColor: '#1475e1',
+            colorBgContainer: '#132a43',
+            colorBorder: '#294763',
+            activeBorderColor: '#2f8cff',
         },
         InputNumber: {
-            colorBgContainer: '#0f212e',
-            colorBorder: '#2f4553',
+            colorBgContainer: '#132a43',
+            colorBorder: '#294763',
         },
         Tabs: {
-            colorBgContainer: '#0f212e',
-            itemSelectedColor: '#ffffff',
-            itemColor: '#b1bad3',
+            colorBgContainer: '#132a43',
+            itemSelectedColor: '#f7fbff',
+            itemColor: '#b7c9d9',
         },
         Card: {
-            colorBgContainer: '#1a2c38',
-            colorBorderSecondary: '#2f4553',
+            colorBgContainer: '#132a43',
+            colorBorderSecondary: '#294763',
         },
         Slider: {
-            colorPrimaryBorderHover: '#00e701',
-            handleColor: '#00e701',
-            trackBg: '#00e701',
-            trackHoverBg: '#00c700',
+            colorPrimaryBorderHover: '#2f8cff',
+            handleColor: '#2f8cff',
+            trackBg: '#2f8cff',
+            trackHoverBg: '#57a5ff',
         },
         Tooltip: {
-            colorBgSpotlight: '#2f4553',
+            colorBgSpotlight: '#183451',
         },
     },
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <ConfigProvider theme={stakeTheme}>
+        <ConfigProvider theme={arcadeTheme}>
             <BrowserRouter>
                 <WalletProvider>
                     <App />

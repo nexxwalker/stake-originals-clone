@@ -800,13 +800,13 @@ function CrashGame() {
                                     return (
                                         <div key={r.id} className="history-card glass-panel">
                                             <div className="history-card-icon">
-                                                <div className="ball-color-circle medium" style={{ background: isWin ? 'linear-gradient(135deg, #00e701, #00a000)' : 'linear-gradient(135deg, #ff4d4f, #cf1322)' }}>
+                                                <div className="ball-color-circle medium" style={{ background: isWin ? 'linear-gradient(135deg, var(--success), #26ad58)' : 'linear-gradient(135deg, #ff4d4f, #cf1322)' }}>
                                                     {isWin ? <TrophyOutlined style={{ color: '#fff' }} /> : <CloseOutlined style={{ color: '#fff' }} />}
                                                 </div>
                                             </div>
                                             <div className="history-card-info">
                                                 <div className="history-card-name">{isWin ? 'Win' : 'Loss'}</div>
-                                                <div className="history-card-multiplier" style={{ color: isWin ? '#00e701' : '#ff4d4f' }}>
+                                                <div className="history-card-multiplier" style={{ color: isWin ? 'var(--success)' : '#ff4d4f' }}>
                                                     {r.cashedOutAt ? r.cashedOutAt.toFixed(2) : r.multiplier.toFixed(2)}×
                                                 </div>
                                             </div>
@@ -826,7 +826,7 @@ function CrashGame() {
             <Modal
                 title={
                     <Space>
-                        <SafetyCertificateOutlined style={{ color: '#00e701' }} />
+                        <SafetyCertificateOutlined style={{ color: 'var(--primary)' }} />
                         <span>Provably Fair</span>
                     </Space>
                 }
@@ -917,7 +917,7 @@ function CrashGame() {
                         <div className="fairness-item">
                             <span className="fairness-label">Hash</span>
                             <div className="fairness-value">
-                                <Text style={{ fontSize: 10, wordBreak: 'break-all', color: '#00e701' }}>
+                                <Text style={{ fontSize: 10, wordBreak: 'break-all', color: 'var(--primary)' }}>
                                     {revealedSeed.serverSeedHash?.slice(0, 20)}...
                                 </Text>
                             </div>

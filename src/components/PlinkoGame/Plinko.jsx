@@ -4,6 +4,16 @@ import PlinkoEngine from './PlinkoEngine';
 import { getBinColors, BIN_PAYOUTS } from './constants';
 import './Plinko.css';
 
+let outcomesPromise;
+
+function loadOutcomes() {
+    outcomesPromise ||= fetch('/plinko-outcomes.json').then((response) => {
+        if (!response.ok) throw new Error('Unable to load Plinko outcomes');
+        return response.json();
+    });
+    return outcomesPromise;
+}
+
 function BinsRow({ rowCount, riskLevel, winRecords, binsWidthPercentage }) {
     const binsRef = useRef([]);
     const [highlightedBin, setHighlightedBin] = useState(null);
@@ -105,32 +115,37 @@ function Plinko({
 
     // Initialize engine
     useEffect(() => {
-        if (!canvasRef.current) return;
+        let cancelled = false;
+        let engine;
 
-        const engine = new PlinkoEngine(canvasRef.current, {
-            rowCount,
-            riskLevel,
-            betAmount,
-            onBallEnterBin: (data) => {
-                onBallEnterBin?.(data);
-            },
-            onBalanceChange: (amount) => {
-                onBalanceChange?.(amount);
-            },
+        loadOutcomes().then((outcomes) => {
+            if (cancelled || !canvasRef.current) return;
+
+            engine = new PlinkoEngine(canvasRef.current, {
+                rowCount,
+                riskLevel,
+                betAmount,
+                outcomes,
+                onBallEnterBin: (data) => {
+                    onBallEnterBin?.(data);
+                },
+                onBalanceChange: (amount) => {
+                    onBalanceChange?.(amount);
+                },
+            });
+
+            engine.start();
+            setPlinkoEngine(engine);
+            setBinsWidthPercentage(engine.binsWidthPercentage);
+            setIsLoading(false);
+
+            if (engineRef) engineRef.current = engine;
         });
 
-        engine.start();
-        setPlinkoEngine(engine);
-        setBinsWidthPercentage(engine.binsWidthPercentage);
-        setIsLoading(false);
-
-        // Expose engine via ref
-        if (engineRef) {
-            engineRef.current = engine;
-        }
-
         return () => {
-            engine.stop();
+            cancelled = true;
+            engine?.stop();
+            if (engineRef) engineRef.current = null;
         };
     }, []);
 

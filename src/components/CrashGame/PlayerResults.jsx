@@ -47,7 +47,7 @@ function PlayerResults({ cashouts }) {
                     >
                         {cashout.currency.symbol}
                     </span>
-                    <Text className="result-amount" style={{ color: '#00e701' }}>
+                    <Text className="result-amount" style={{ color: 'var(--success)' }}>
                         {cashout.amount}
                     </Text>
                 </div>

@@ -4,7 +4,6 @@
 
 import { Ball, pad, unpad } from './Ball';
 import { BIN_PAYOUTS } from './constants';
-import { OUTCOMES } from './plinkoOutcomes';
 
 const WIDTH = 760;
 const HEIGHT = 570;
@@ -37,6 +36,7 @@ class PlinkoEngine {
         this.riskLevel = options.riskLevel || 'medium';
         this.onBallEnterBin = options.onBallEnterBin || (() => { });
         this.onBalanceChange = options.onBalanceChange || (() => { });
+        this.outcomes = options.outcomes || {};
 
         this.balls = [];
         this.pins = [];           // { id, x, y, radius } — x,y in UNPADDED screen coords
@@ -94,7 +94,7 @@ class PlinkoEngine {
      * Data loaded from plinkoOutcomes.js (generated offline by scripts/generatePlinkoOutcomes.cjs)
      */
     _getDropXForBin(binIndex) {
-        const rowOutcomes = OUTCOMES[this.rowCount];
+        const rowOutcomes = this.outcomes[this.rowCount];
         if (!rowOutcomes) return pad(WIDTH / 2);
 
         const positions = rowOutcomes[binIndex];

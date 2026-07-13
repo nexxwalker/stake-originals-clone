@@ -46,16 +46,16 @@ function HomePage() {
             <section className="home-page-hero">
                 <div className="hero-content">
                     <div className="hero-copy">
-                        <div className="hero-badge"><span className="dot" /> Four instant-play originals</div>
-                        <h1>Play Stake Originals.<br /><span>Built for the next round.</span></h1>
-                        <p className="hero-desc">Provably fair games, instant play, and virtual points only. Pick a game and start playing in seconds.</p>
+                        <div className="hero-eyebrow">4 Original Games</div>
+                        <h1 className="hero-title">
+                            <span>Pick a game.</span>
+                            <span>Chase the <strong>next win.</strong></span>
+                        </h1>
+                        <p className="hero-description">Instant play. Provably fair. Virtual points only.</p>
                         <div className="hero-actions">
-                            <button type="button" className="hero-btn hero-btn-primary">Register Instantly</button>
-                            <a className="hero-btn hero-btn-secondary" href="#stake-originals" onClick={focusGames}>Explore Games</a>
+                            <button type="button" className="hero-primary-button">Play now</button>
+                            <a className="hero-secondary-link" href="#stake-originals" onClick={focusGames}>Browse games <span aria-hidden="true">→</span></a>
                         </div>
-                    </div>
-                    <div className="hero-artwork">
-                        <img src="/images/casino-chip.svg" alt="Casino chip and coin" />
                     </div>
                 </div>
             </section>

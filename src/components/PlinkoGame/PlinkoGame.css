@@ -74,7 +74,7 @@
 .big-win-payout {
     font-size: 36px;
     font-weight: 700;
-    color: #00e701;
+    color: var(--success);
     margin-top: 16px;
 }
 
@@ -216,8 +216,8 @@
 }
 
 .plinko-controls .control-btn.active-debug {
-    background: #1a3a2a !important;
-    color: #00e701 !important;
+    background: var(--primary-soft) !important;
+    color: var(--primary) !important;
 }
 
 .plinko-controls .control-btn:hover {
@@ -425,8 +425,8 @@
 }
 
 .timeline-dot.win {
-    background: linear-gradient(135deg, #00e701, #00c801);
-    box-shadow: 0 2px 0 #006601, 0 4px 8px rgba(0, 231, 1, 0.3);
+    background: linear-gradient(135deg, var(--success), #26ad58);
+    box-shadow: 0 2px 0 #1e7f45, 0 4px 8px rgba(53, 208, 111, 0.3);
 }
 
 .timeline-dot.loss {
@@ -606,13 +606,13 @@
     bottom: auto;
     width: 24rem;
     background: #0f172a;
-    border: 2px solid #00e701;
-    box-shadow: 0 8px 0 rgba(0, 150, 1, 0.4), 0 12px 24px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 0 rgba(30, 111, 214, 0.4), 0 12px 24px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .debug-widget-header {
-    background: #1a2c38;
-    border-bottom: 2px solid #00e701;
+    background: var(--surface-1);
+    border-bottom: 2px solid var(--primary);
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
@@ -656,10 +656,10 @@
     font-weight: 900;
     margin: 4px 0;
     padding: 16px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 6px;
-    border: 1px solid #00e701;
-    box-shadow: 0 4px 0 rgba(0, 150, 1, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--primary);
+    box-shadow: 0 4px 0 rgba(30, 111, 214, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
 }
@@ -669,7 +669,7 @@
 }
 
 .debug-target .target-payout {
-    color: #00e701;
+    color: var(--primary);
 }
 
 .debug-path-row {
@@ -700,8 +700,8 @@
 }
 
 .debug-path-dot.right {
-    background: #00e701;
-    box-shadow: 0 4px 0 #009601, inset 0 2px 2px rgba(255, 255, 255, 0.3);
+    background: var(--primary);
+    box-shadow: 0 4px 0 var(--primary-active), inset 0 2px 2px rgba(255, 255, 255, 0.3);
 }
 
 .stat-card:hover {
@@ -776,15 +776,15 @@
 }
 
 .fairness-header {
-    background: linear-gradient(135deg, rgba(0, 231, 1, 0.1), rgba(0, 231, 1, 0.05));
-    border: 1px solid rgba(0, 231, 1, 0.2);
+    background: linear-gradient(135deg, rgba(47, 140, 255, 0.1), rgba(47, 140, 255, 0.05));
+    border: 1px solid rgba(47, 140, 255, 0.2);
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 20px;
 }
 
 .fairness-header h5 {
-    color: #00e701 !important;
+    color: var(--primary) !important;
     margin: 0 0 8px 0 !important;
 }
 
@@ -822,23 +822,23 @@
     font-size: 16px !important;
     font-weight: 700 !important;
     border-radius: 8px !important;
-    background: #00e701 !important;
+    background: var(--primary) !important;
     color: #000 !important;
     border: none !important;
     transform: translateY(-4px);
-    box-shadow: 0 4px 0 #006601, 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 0 var(--primary-active), 0 4px 8px rgba(0, 0, 0, 0.3) !important;
     transition: all 0.15s ease !important;
 }
 
 .fairness-verify-btn:hover {
-    background: #00c801 !important;
+    background: var(--primary-hover) !important;
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 #006601, 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 2px 0 var(--primary-active), 0 2px 6px rgba(0, 0, 0, 0.3) !important;
 }
 
 .fairness-verify-btn:active {
     transform: translateY(0);
-    box-shadow: 0 0 0 #006601 !important;
+    box-shadow: 0 0 0 var(--primary-active) !important;
 }
 
 /* ==========================================================

@@ -266,7 +266,7 @@ function GameChart({ phase, multiplier, elapsedTime, countdown }) {
 
     const getMultiplierColor = () => {
         if (phase === 'crashed') return '#ed4245'
-        if (multiplier >= 10) return '#00e701'
+        if (multiplier >= 10) return '#35d06f'
         if (multiplier >= 5) return '#ffc107'
         if (multiplier >= 2) return '#f7931a'
         return '#ffffff'
@@ -361,7 +361,7 @@ function GameChart({ phase, multiplier, elapsedTime, countdown }) {
             {/* Network Status */}
             <div className="network-indicator">
                 <Badge status="success" />
-                <WifiOutlined style={{ color: '#00e701', marginRight: 4 }} />
+                <WifiOutlined style={{ color: 'var(--success)', marginRight: 4 }} />
                 <Text type="secondary" style={{ fontSize: 11 }}>Connected</Text>
             </div>
         </div>

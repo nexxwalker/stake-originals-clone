@@ -139,7 +139,7 @@ function BettingPanel({ phase, betPlaced, multiplier, onBet, onCashout }) {
                             <label className="form-label" style={{ margin: 0 }}>Profit on Win</label>
                             <Text type="secondary" style={{ margin: 0 }}>₿{profit.toFixed(2)}</Text>
                         </div>
-                        <Text strong style={{ color: '#00e701', fontSize: 16, fontFamily: "'Courier New', monospace" }}>
+                        <Text strong style={{ color: 'var(--success)', fontSize: 16, fontFamily: "'Courier New', monospace" }}>
                             +₿{profit.toFixed(2)}
                         </Text>
                     </div>

@@ -48,7 +48,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
                 </button>
                 <div className="sidebar-switcher">
-                    <button className="switch-btn active" style={{ backgroundColor: 'var(--accent-green)', color: '#fff' }}>
+                    <button className="switch-btn active">
                         Casino
                     </button>
                     <button className="switch-btn">

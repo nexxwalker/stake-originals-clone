@@ -90,7 +90,7 @@
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 6px 0 #1a2c38, 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 0 var(--surface-1), 0 8px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.15s ease;
     position: relative;
     aspect-ratio: 1;
@@ -106,12 +106,12 @@
 .mine-tile:hover {
     background: #3a5565;
     transform: translateY(-6px);
-    box-shadow: 0 10px 0 #1a2c38, 0 14px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 0 var(--surface-1), 0 14px 25px rgba(0, 0, 0, 0.4);
 }
 
 .mine-tile:active:not(.inactive) {
     transform: translateY(-1px);
-    box-shadow: 0 3px 0 #1a2c38, 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 0 var(--surface-1), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .mine-tile.inactive {
@@ -219,7 +219,7 @@
     height: 36px;
     border-radius: 8px;
     border: none;
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.15s ease;
@@ -231,7 +231,7 @@
 }
 
 .mines-sidebar .footer-btn:hover {
-    background: #3d5564;
+    background: var(--surface-hover);
     color: var(--text-primary);
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -239,7 +239,7 @@
 
 .mines-sidebar .footer-btn:active,
 .mines-sidebar .footer-btn.active {
-    background: #1a2c38;
+    background: var(--surface-1);
     color: var(--text-primary);
     transform: translateY(0);
     box-shadow: none;
@@ -265,7 +265,7 @@
     display: flex;
     gap: 4px;
     padding: 4px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 10px;
     border: none;
     transform: translateY(-4px);
@@ -278,7 +278,7 @@
     padding: 10px 16px;
     border: none;
     border-radius: 6px;
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-secondary);
     font-size: 14px;
     font-weight: 600;
@@ -288,20 +288,20 @@
 
 .bet-mode-tab:hover:not(:disabled):not(.active) {
     color: var(--text-primary);
-    background: #3d5564;
+    background: var(--surface-hover);
 }
 
 .bet-mode-tab.active {
-    background: #00e701;
+    background: var(--primary);
     color: #000;
     font-weight: 700;
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 #006601, 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 var(--primary-active), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .bet-mode-tab.active:active {
     transform: translateY(0);
-    box-shadow: 0 0 0 #006601;
+    box-shadow: 0 0 0 var(--primary-active);
 }
 
 .bet-mode-tab:disabled {
@@ -361,7 +361,7 @@
     flex: 1;
     border-radius: 8px;
     border: none;
-    background: #2a3f4d;
+    background: var(--surface-2);
     transform: translateY(-4px);
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.15s ease;
@@ -370,7 +370,7 @@
 /* InputNumber Addon ($ icon) - 3D Pushable Style */
 .mines-sidebar .ant-input-number-group-addon,
 .mines-sidebar .ant-input-number-addon {
-    background: #2a3f4d !important;
+    background: var(--surface-2) !important;
     border: none !important;
     border-radius: 8px 0 0 8px !important;
     transform: translateY(-4px);
@@ -406,7 +406,7 @@
 .mines-sidebar .ant-input-number:focus,
 .mines-sidebar .ant-input-number-focused {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Addon also presses down when input is focused */
@@ -414,7 +414,7 @@
 .mines-sidebar .ant-input-number-group-wrapper:focus-within .ant-input-number-group-addon,
 .mines-sidebar .ant-input-number-group:focus-within .ant-input-number-group-addon {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .mines-sidebar .ant-input-number:disabled {
@@ -437,7 +437,7 @@
 .mines-sidebar .ant-btn-group .ant-btn {
     border-radius: 0;
     border: none;
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-primary);
     font-weight: 600;
     font-size: 13px;
@@ -455,19 +455,19 @@
 .mines-sidebar .ant-btn-group .ant-btn:last-child {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    background: #2a4f3d;
-    color: #00e701;
+    background: var(--primary-soft);
+    color: var(--primary);
 }
 
 .mines-sidebar .ant-btn-group .ant-btn:hover:not(:disabled) {
-    background: #3d5564;
+    background: var(--surface-hover);
     color: #ffffff;
     transform: translateY(-2px);
 }
 
 .mines-sidebar .ant-btn-group .ant-btn:last-child:hover:not(:disabled) {
-    background: #3d6f4d;
-    color: #00ff00;
+    background: var(--cyan-soft);
+    color: var(--cyan);
 }
 
 .mines-sidebar .ant-btn-group .ant-btn:active:not(:disabled) {
@@ -483,7 +483,7 @@
 .mines-select {
     width: 100%;
     padding: 12px 36px 12px 12px;
-    background-color: #2a3f4d;
+    background-color: var(--surface-2);
     border: none;
     border-radius: 8px;
     color: var(--text-primary);
@@ -501,14 +501,14 @@
 }
 
 .mines-select:hover:not(:disabled) {
-    background-color: #3d5564;
+    background-color: var(--surface-hover);
     transform: translateY(-4px);
 }
 
 .mines-select:active:not(:disabled),
 .mines-select:focus {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .mines-select-wrapper {
@@ -518,7 +518,7 @@
 /* Base input styling for non-InputNumber fields (Gems, Total Profit) */
 .input-with-controls {
     display: flex;
-    background: #2a3f4d;
+    background: var(--surface-2);
     border-radius: 8px;
     border: none;
     overflow: hidden;
@@ -529,7 +529,7 @@
 
 .input-with-controls:focus-within {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 rgba(0, 231, 1, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .mines-input {
@@ -573,7 +573,7 @@
 
 /* Pick Random Button */
 .btn-random-pick {
-    background: #2a3f4d;
+    background: var(--surface-2);
     color: var(--text-primary);
     border: none;
     border-radius: 8px;
@@ -588,7 +588,7 @@
 }
 
 .btn-random-pick:hover:not(:disabled) {
-    background: #3d5564;
+    background: var(--surface-hover);
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
@@ -605,7 +605,7 @@
 
 /* Main Bet Button */
 .btn-bet-mines {
-    background: #00e701;
+    background: var(--primary);
     color: #000;
     border: none;
     border-radius: 8px;
@@ -618,18 +618,18 @@
     transition: all 0.15s ease;
     margin-top: 10px;
     transform: translateY(-6px);
-    box-shadow: 0 6px 0 #006601, 0 6px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 0 var(--primary-active), 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 .btn-bet-mines:hover:not(:disabled) {
-    background: #00c801;
+    background: var(--primary-hover);
     transform: translateY(-4px);
-    box-shadow: 0 4px 0 #006601, 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 0 var(--primary-active), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-bet-mines:active:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 2px 0 #006601, 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 0 var(--primary-active), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-bet-mines:disabled {
@@ -749,7 +749,7 @@
     right: 32px;
     bottom: 32px;
     width: 20rem;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 8px;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -818,7 +818,7 @@
 }
 
 .widget-btn-icon:hover {
-    background: #2a3f4d;
+    background: var(--surface-2);
 }
 
 .widget-btn-icon:active {
@@ -862,7 +862,7 @@
 .profit-divider {
     width: 2px;
     margin: 0 16px;
-    background-color: #2a3f4d;
+    background-color: var(--surface-2);
 }
 
 .profit-stats {
@@ -945,7 +945,7 @@
 }
 
 .game-controls .control-btn:hover {
-    background: #3d5564 !important;
+    background: var(--surface-hover) !important;
     color: var(--text-primary) !important;
 }
 
@@ -967,7 +967,7 @@
     right: 32px;
     bottom: 32px;
     width: 20rem;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 8px;
     z-index: 100;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
@@ -1036,7 +1036,7 @@
 }
 
 .widget-btn-icon:hover {
-    background: #2a3f4d;
+    background: var(--surface-2);
 }
 
 .widget-btn-icon:active {
@@ -1081,7 +1081,7 @@
 .profit-divider {
     width: 2px;
     margin: 0 16px;
-    background-color: #2a3f4d;
+    background-color: var(--surface-2);
 }
 
 .profit-stats {
@@ -1130,13 +1130,13 @@
     bottom: auto;
     width: 24rem;
     background: #0f172a;
-    border: 2px solid #00e701;
-    box-shadow: 0 8px 0 rgba(0, 150, 1, 0.4), 0 12px 24px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary);
+    box-shadow: 0 8px 0 rgba(30, 111, 214, 0.4), 0 12px 24px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .debug-widget-header {
-    background: #1a2c38;
-    border-bottom: 2px solid #00e701;
+    background: var(--surface-1);
+    border-bottom: 2px solid var(--primary);
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.2);
@@ -1163,7 +1163,7 @@
     font-size: 13px;
     color: #b1bad3;
     padding: 8px 12px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 6px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1180,10 +1180,10 @@
     font-weight: 900;
     margin: 4px 0;
     padding: 16px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 6px;
-    border: 1px solid #00e701;
-    box-shadow: 0 4px 0 rgba(0, 150, 1, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--primary);
+    box-shadow: 0 4px 0 rgba(30, 111, 214, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     transform: translateY(-2px);
 }
@@ -1193,7 +1193,7 @@
 }
 
 .debug-target .target-payout {
-    color: #00e701;
+    color: var(--primary);
 }
 
 .debug-path-row {
@@ -1203,7 +1203,7 @@
     flex-wrap: wrap;
     margin-top: 8px;
     padding: 12px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 6px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -1238,7 +1238,7 @@
     gap: 4px;
     margin-top: 8px;
     padding: 12px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 6px;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -1279,8 +1279,8 @@
 
 /* Active debug button */
 .game-controls .control-btn.active-debug {
-    color: #00e701 !important;
-    background: rgba(0, 231, 1, 0.1) !important;
+    color: var(--primary) !important;
+    background: var(--primary-soft) !important;
 }
 
 /* 3D Box Modal Theme */
@@ -1294,7 +1294,7 @@
 }
 
 .box-modal-3d .ant-modal-header {
-    background: #1a2c38 !important;
+    background: var(--surface-1) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
     padding: 16px 24px !important;
     margin: 0 !important;
@@ -1305,14 +1305,14 @@
 }
 
 .fairness-header {
-    background: rgba(0, 231, 1, 0.08);
+    background: rgba(47, 140, 255, 0.08);
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 16px;
 }
 
 .fairness-header h5 {
-    color: #00e701 !important;
+    color: var(--primary) !important;
     margin-bottom: 6px !important;
 }
 
@@ -1327,7 +1327,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
-    background: #1a2c38;
+    background: var(--surface-1);
     border-radius: 8px;
     margin-bottom: 8px;
 }
