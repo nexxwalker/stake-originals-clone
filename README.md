@@ -1,5 +1,7 @@
 # Open Stake - Crypto Casino Clone
 
+> Looking for the previous version? View it on the [`backup-before-arcade` branch](https://github.com/tanh1c/stake-originals-clone/tree/backup-before-arcade).
+
 <p align="center">
   <img src="./docs/images/banner.png" alt="Open Stake preview banner" />
 </p>
