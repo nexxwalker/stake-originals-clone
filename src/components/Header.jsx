@@ -31,6 +31,7 @@ function Header() {
     const dropdownRef = useRef(null)
 
     const isGamePage = GAME_PATHS.some(p => location.pathname.startsWith(p))
+    const isHomePage = location.pathname === '/'
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -57,7 +58,7 @@ function Header() {
     })
 
     return (
-        <header className="header">
+        <header className={`header ${isHomePage ? 'header-home' : ''}`}>
             <div className="header-left">
                 <Link to="/" className="logo-link">
                     <span className="logo" style={{ color: 'var(--text-primary)' }}>Stake</span>

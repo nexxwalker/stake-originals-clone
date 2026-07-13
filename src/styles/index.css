@@ -194,6 +194,22 @@ body {
     filter: brightness(1.1);
 }
 
+/* ===== Homepage Chrome ===== */
+.header-home .header-center {
+    max-width: 680px;
+    margin-inline: 32px;
+}
+
+.header-home .search-input-wrapper {
+    border: 1px solid var(--border-color);
+    background: rgba(47, 69, 83, 0.7);
+}
+
+.header-home .search-input-wrapper:focus-within {
+    border-color: var(--accent-blue);
+    background: var(--bg-primary);
+}
+
 /* ===== Header Wallet ===== */
 .header-wallet {
     display: flex;
@@ -660,6 +676,21 @@ body {
 
 .app-sidebar-hidden {
     width: 60px;
+}
+
+.app-sidebar-home .nav-section {
+    border-bottom-color: rgba(177, 186, 211, 0.12);
+}
+
+.app-sidebar-home .nav-title {
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.app-sidebar-home .nav-item:hover,
+.app-sidebar-home .nav-item.active {
+    background: rgba(47, 69, 83, 0.9);
+    color: var(--text-primary);
 }
 
 .app-sidebar::-webkit-scrollbar {
@@ -1488,6 +1519,10 @@ body {
 @media (max-width: 768px) {
     .header {
         padding: 0 12px;
+    }
+
+    .header-home .header-center {
+        margin-inline: 12px;
     }
 
     .app-sidebar {

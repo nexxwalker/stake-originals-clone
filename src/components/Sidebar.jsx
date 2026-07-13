@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const navItems = [
     { icon: 'star', label: 'Favourites', path: '/favourites' },
@@ -8,7 +8,7 @@ const navItems = [
 ]
 
 const gameItems = [
-    { icon: 'original', label: 'Crash', path: '/crash', active: true },
+    { icon: 'original', label: 'Crash', path: '/crash' },
     { icon: 'plinko', label: 'Plinko', path: '/plinko' },
     { icon: 'dino', label: 'Dino Run', path: '/dino' },
     { icon: 'mines', label: 'Mines', path: '/mines' }
@@ -39,8 +39,10 @@ const icons = {
 }
 
 function Sidebar({ isOpen, toggleSidebar }) {
+    const isHomePage = useLocation().pathname === '/'
+
     return (
-        <aside className={`app-sidebar ${!isOpen ? 'app-sidebar-hidden' : ''}`}>
+        <aside className={`app-sidebar ${isHomePage ? 'app-sidebar-home' : ''} ${!isOpen ? 'app-sidebar-hidden' : ''}`}>
             <div className="sidebar-header">
                 <button className="icon-btn sidebar-toggle" onClick={toggleSidebar}>
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
