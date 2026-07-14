@@ -360,23 +360,19 @@ function MinesGame() {
 
     const startGame = async () => {
         if (betAmount <= 0) return;
-        if (balance < betAmount) {
+        const pf = fairnessRef.current;
+        if (!pf) return;
+
+        const result = await pf.generateMinesPositions(minesCount);
+        const mines = new Set(result.minePositions);
+        const data = await pf.getFairnessData();
+
+        if (!placeBet(betAmount)) {
             showToast('error', 'Insufficient Balance', `You need ₿${betAmount.toFixed(2)}`);
             return;
         }
 
-        placeBet(betAmount);
-
-        // Generate mines using provably fair system
-        const pf = fairnessRef.current;
-        if (!pf) return;
-        const result = await pf.generateMinesPositions(minesCount);
-        const mines = new Set(result.minePositions);
-
-        // Update fairness data after nonce advances
-        const data = await pf.getFairnessData();
         setFairnessData(data);
-
         setMineLocations(Array.from(mines));
         setRevealedTiles([]);
         setGameOverState(null);
@@ -775,6 +771,7 @@ function MinesGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
+                rootClassName="mines-fairness-modal-portal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{
@@ -861,6 +858,7 @@ function MinesGame() {
                 width={700}
                 centered
                 closable={true}
+                rootClassName="mines-history-modal-portal"
                 className="box-modal-3d"
                 closeIcon={<CloseOutlined />}
             >

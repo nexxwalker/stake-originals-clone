@@ -440,8 +440,7 @@ function PlinkoGame() {
     const handleDropBall = useCallback(async () => {
         if (engineRef.current && provablyFair) {
             // Deduct bet from wallet
-            if (betAmount > balance) return;
-            placeBet(betAmount);
+            if (!placeBet(betAmount)) return;
 
             engineRef.current.updateBallStyle(currentBall.color, currentBall.image);
 
@@ -753,6 +752,7 @@ function PlinkoGame() {
                 onCancel={() => setHistoryDrawerOpen(false)}
                 open={historyDrawerOpen}
                 width={460}
+                rootClassName="plinko-history-modal-portal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -836,6 +836,7 @@ function PlinkoGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
+                rootClassName="plinko-fairness-modal-portal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{

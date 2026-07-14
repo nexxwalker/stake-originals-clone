@@ -1,11 +1,11 @@
 /* Plinko Component CSS - Proper scaling */
 
-:root {
+.plinko-page {
     --plinko-max-width: 880px;
     /* increased canvas max width to give more space while keeping bins alignment */
 }
 
-.plinko {
+.plinko-page .plinko {
     position: relative;
     flex: 1;
     display: flex;
@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 
-.plinko-content {
+.plinko-page .plinko-content {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     padding: 16px;
 }
 
-.plinko-board-wrapper {
+.plinko-page .plinko-board-wrapper {
     position: relative;
     width: 100%;
     max-width: var(--plinko-max-width);
@@ -32,7 +32,7 @@
 }
 
 /* Canvas container - limited max size */
-.plinko-canvas-container {
+.plinko-page .plinko-canvas-container {
     position: relative;
     width: 100%;
     /* Match Svelte source */
@@ -41,14 +41,14 @@
     justify-content: center;
 }
 
-.plinko-canvas {
+.plinko-page .plinko-canvas {
     width: 100% !important;
     height: 100% !important;
     display: block;
     background: transparent !important;
 }
 
-.plinko-loading {
+.plinko-page .plinko-loading {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -56,7 +56,7 @@
     z-index: 10;
 }
 
-.loading-spinner {
+.plinko-page .loading-spinner {
     width: 48px;
     height: 48px;
     border: 3px solid rgba(255, 255, 255, 0.1);
@@ -72,7 +72,7 @@
 }
 
 /* Bins Row - matches canvas width */
-.bins-row {
+.plinko-page .bins-row {
     display: flex;
     gap: 3px;
     height: 28px;
@@ -80,7 +80,7 @@
     justify-content: center;
 }
 
-.bin {
+.plinko-page .bin {
     flex: 1;
     min-width: 0;
     display: flex;
@@ -94,13 +94,13 @@
     transition: transform 0.2s ease;
 }
 
-.bin.highlight {
+.plinko-page .bin.highlight {
     transform: scale(1.08) translateY(-2px);
     z-index: 1;
 }
 
 /* Last Wins */
-.last-wins {
+.plinko-page .last-wins {
     position: absolute;
     top: 50%;
     right: 20px;
@@ -113,7 +113,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.last-win-item {
+.plinko-page .last-win-item {
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
@@ -125,54 +125,54 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .plinko-board-wrapper {
+    .plinko-page .plinko-board-wrapper {
         max-width: 600px;
     }
 
-    .bins-row {
+    .plinko-page .bins-row {
         height: 24px;
         gap: 2px;
     }
 
-    .bin {
+    .plinko-page .bin {
         font-size: 9px;
     }
 
-    .last-wins {
+    .plinko-page .last-wins {
         width: 32px;
         right: 12px;
     }
 
-    .last-win-item {
+    .plinko-page .last-win-item {
         font-size: 9px;
     }
 }
 
 @media (max-width: 600px) {
-    .plinko-content {
+    .plinko-page .plinko-content {
         padding: 10px;
     }
 
-    .plinko-board-wrapper {
+    .plinko-page .plinko-board-wrapper {
         max-width: 100%;
     }
 
-    .bins-row {
+    .plinko-page .bins-row {
         height: 20px;
         gap: 2px;
     }
 
-    .bin {
+    .plinko-page .bin {
         font-size: 7px;
         border-radius: 2px;
     }
 
-    .last-wins {
+    .plinko-page .last-wins {
         width: 28px;
         right: 8px;
     }
 
-    .last-win-item {
+    .plinko-page .last-win-item {
         font-size: 8px;
     }
 }

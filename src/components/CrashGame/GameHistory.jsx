@@ -54,6 +54,7 @@ function GameHistory({ history }) {
                 onClose={() => setDrawerOpen(false)}
                 open={drawerOpen}
                 width={320}
+                rootClassName="crash-history-drawer-portal"
                 styles={{
                     header: { background: '#1a2c38', borderBottom: '1px solid #2f4553' },
                     body: { background: '#0f212e', padding: 0 },

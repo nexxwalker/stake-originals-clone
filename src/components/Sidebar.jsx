@@ -1,4 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom'
+import { GAMES } from '../games'
 
 const navItems = [
     { icon: 'star', label: 'Favourites', path: '/favourites' },
@@ -7,12 +8,6 @@ const navItems = [
     { icon: 'check', label: 'My Bets', path: '/my-bets' },
 ]
 
-const gameItems = [
-    { icon: 'original', label: 'Crash', path: '/crash' },
-    { icon: 'plinko', label: 'Plinko', path: '/plinko' },
-    { icon: 'dino', label: 'Dino Run', path: '/dino' },
-    { icon: 'mines', label: 'Mines', path: '/mines' }
-]
 
 // SVG Icons
 const icons = {
@@ -75,7 +70,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
 
                 <div className="nav-section">
                     <h3 className="nav-title">Games</h3>
-                    {gameItems.map((item) => (
+                    {GAMES.map((item) => (
                         <NavLink
                             key={item.path}
                             to={item.path}
@@ -84,7 +79,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
                             <span className="nav-icon">
                                 <svg viewBox="0 0 24 24" fill="currentColor">{icons[item.icon]}</svg>
                             </span>
-                            <span>{item.label}</span>
+                            <span>{item.navLabel}</span>
                         </NavLink>
                     ))}
                 </div>

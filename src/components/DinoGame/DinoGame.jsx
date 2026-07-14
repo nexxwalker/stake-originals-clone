@@ -322,7 +322,7 @@ function DinoGame() {
     const placeBet = useCallback(() => {
         if (betAmount <= 0 || betAmount > balance) return;
 
-        walletPlaceBet(betAmount);
+        if (!walletPlaceBet(betAmount)) return;
         setTotalWagered(prev => prev + betAmount);
         setGamesPlayed(prev => prev + 1);
         setGamePhase('betting');
@@ -1024,6 +1024,7 @@ function DinoGame() {
                 onCancel={() => setHistoryModalOpen(false)}
                 open={historyModalOpen}
                 width={460}
+                rootClassName="dino-history-modal-portal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -1088,6 +1089,7 @@ function DinoGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
+                rootClassName="dino-fairness-modal-portal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{

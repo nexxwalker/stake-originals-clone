@@ -2,7 +2,7 @@
    SIDEBAR COMPONENT - CLEAN & ORGANIZED STYLING
    ================================================================= */
 
-:root {
+.plinko-page {
     /* Sidebar Spacing System */
     --sidebar-padding: 16px;
     --sidebar-gap: 16px;
@@ -30,7 +30,7 @@
    MAIN SIDEBAR CONTAINER
    ================================================================= */
 
-.sidebar {
+.plinko-page .sidebar {
     width: 320px;
     min-width: 320px;
     display: flex;
@@ -45,7 +45,7 @@
     -ms-overflow-style: none;
 }
 
-.sidebar::-webkit-scrollbar {
+.plinko-page .sidebar::-webkit-scrollbar {
     display: none;
 }
 
@@ -54,7 +54,7 @@
    ================================================================= */
 
 /* Bet Mode Tabs - 3D Box Style */
-.bet-mode-tabs {
+.plinko-page .bet-mode-tabs {
     display: flex;
     gap: 4px;
     padding: 4px;
@@ -66,7 +66,7 @@
     transition: all 0.15s ease;
 }
 
-.bet-mode-tab {
+.plinko-page .bet-mode-tab {
     flex: 1;
     padding: 10px 16px;
     border: none;
@@ -80,12 +80,12 @@
     position: relative;
 }
 
-.bet-mode-tab:hover:not(:disabled):not(.active) {
+.plinko-page .bet-mode-tab:hover:not(:disabled):not(.active) {
     color: var(--text-primary);
     background: var(--surface-hover);
 }
 
-.bet-mode-tab.active {
+.plinko-page .bet-mode-tab.active {
     background: var(--primary);
     color: #000;
     font-weight: 700;
@@ -93,12 +93,12 @@
     box-shadow: 0 2px 0 var(--primary-active), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.bet-mode-tab.active:active {
+.plinko-page .bet-mode-tab.active:active {
     transform: translateY(0);
     box-shadow: 0 0 0 var(--primary-active);
 }
 
-.bet-mode-tab:disabled {
+.plinko-page .bet-mode-tab:disabled {
     cursor: not-allowed;
     opacity: 0.4;
     transform: none;
@@ -106,12 +106,12 @@
 }
 
 /* Form Groups */
-.form-group {
+.plinko-page .form-group {
     position: relative;
     margin-bottom: 16px;
 }
 
-.form-label {
+.plinko-page .form-label {
     display: block;
     font-size: 12px;
     font-weight: 500;
@@ -122,14 +122,14 @@
     line-height: 1.2;
 }
 
-.form-label-row {
+.plinko-page .form-label-row {
     display: flex;
     align-items: center;
     gap: 6px;
     margin-bottom: 8px;
 }
 
-.help-icon {
+.plinko-page .help-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -144,12 +144,12 @@
     transition: background-color 0.2s ease;
 }
 
-.help-icon:hover {
+.plinko-page .help-icon:hover {
     background: var(--text-primary);
 }
 
 /* Form header (used for compact right-aligned secondary text) */
-.form-header {
+.plinko-page .form-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -157,13 +157,13 @@
 }
 
 /* Input row: InputNumber + multiplier buttons */
-.input-row {
+.plinko-page .input-row {
     display: flex;
     gap: 8px;
     align-items: center;
 }
 
-.currency-badge {
+.plinko-page .currency-badge {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -176,7 +176,7 @@
 }
 
 /* BTC icon like Crash's panel */
-.btc-icon {
+.plinko-page .btc-icon {
     width: 20px;
     height: 20px;
     display: inline-flex;
@@ -190,14 +190,14 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.btc-icon.small {
+.plinko-page .btc-icon.small {
     width: 20px;
     height: 20px;
     font-size: 10px;
 }
 
 /* Input Components - Ant Design Overrides & 3D Style */
-.sidebar .ant-input-number {
+.plinko-page .sidebar .ant-input-number {
     flex: 1;
     border-radius: 8px;
     border: none;
@@ -207,8 +207,8 @@
     transition: all 0.15s ease;
 }
 
-.sidebar .ant-input-number-group-addon,
-.sidebar .ant-input-number-addon {
+.plinko-page .sidebar .ant-input-number-group-addon,
+.plinko-page .sidebar .ant-input-number-addon {
     background: var(--surface-2) !important;
     border: none !important;
     border-radius: 8px 0 0 8px !important;
@@ -218,31 +218,31 @@
     padding: 0 12px !important;
 }
 
-.sidebar .ant-input-number-group-addon .btc-icon,
-.sidebar .ant-input-number-addon .btc-icon {
+.plinko-page .sidebar .ant-input-number-group-addon .btc-icon,
+.plinko-page .sidebar .ant-input-number-addon .btc-icon {
     background: linear-gradient(135deg, #f7931a, #ffb347) !important;
 }
 
-.sidebar .ant-input-number .ant-input-number-input {
+.plinko-page .sidebar .ant-input-number .ant-input-number-input {
     color: var(--text-primary);
     font-size: 14px;
     font-weight: 600;
 }
 
-.sidebar .ant-input-number:focus,
-.sidebar .ant-input-number-focused {
+.plinko-page .sidebar .ant-input-number:focus,
+.plinko-page .sidebar .ant-input-number-focused {
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar .ant-input-number-focused+.ant-input-number-group-addon,
-.sidebar .ant-input-number-group-wrapper:focus-within .ant-input-number-group-addon,
-.sidebar .ant-input-number-group:focus-within .ant-input-number-group-addon {
+.plinko-page .sidebar .ant-input-number-focused+.ant-input-number-group-addon,
+.plinko-page .sidebar .ant-input-number-group-wrapper:focus-within .ant-input-number-group-addon,
+.plinko-page .sidebar .ant-input-number-group:focus-within .ant-input-number-group-addon {
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar .ant-input-number:disabled {
+.plinko-page .sidebar .ant-input-number:disabled {
     cursor: not-allowed;
     opacity: 0.4;
     transform: none;
@@ -250,7 +250,7 @@
 }
 
 /* Button Group for ½ and 2× - 3D Pushable Style */
-.sidebar .ant-btn-group {
+.plinko-page .sidebar .ant-btn-group {
     display: flex;
     gap: 0;
     transform: translateY(-4px);
@@ -259,7 +259,7 @@
     transition: all 0.15s ease;
 }
 
-.sidebar .ant-btn-group .ant-btn {
+.plinko-page .sidebar .ant-btn-group .ant-btn {
     border-radius: 0;
     border: none;
     background: var(--surface-2);
@@ -272,31 +272,31 @@
     transform: translateY(0);
 }
 
-.sidebar .ant-btn-group .ant-btn:first-child {
+.plinko-page .sidebar .ant-btn-group .ant-btn:first-child {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
-.sidebar .ant-btn-group .ant-btn:last-child {
+.plinko-page .sidebar .ant-btn-group .ant-btn:last-child {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
-.sidebar .ant-btn-group .ant-btn:active:not(:disabled) {
+.plinko-page .sidebar .ant-btn-group .ant-btn:active:not(:disabled) {
     background: var(--primary-soft);
     color: var(--primary);
 }
 
-.sidebar .ant-btn-group .ant-btn:hover:not(:disabled) {
+.plinko-page .sidebar .ant-btn-group .ant-btn:hover:not(:disabled) {
     background: var(--surface-hover);
     color: #ffffff;
 }
 
-.sidebar .ant-btn-group .ant-btn:disabled {
+.plinko-page .sidebar .ant-btn-group .ant-btn:disabled {
     opacity: 0.4;
 }
 
-.error-text {
+.plinko-page .error-text {
     position: absolute;
     top: 100%;
     left: 0;
@@ -307,7 +307,7 @@
 }
 
 /* Select Component - 3D Box Style */
-.form-select {
+.plinko-page .form-select {
     width: 100%;
     padding: 12px 36px 12px 12px;
     background-color: var(--surface-2);
@@ -327,19 +327,19 @@
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.form-select:hover:not(:disabled) {
+.plinko-page .form-select:hover:not(:disabled) {
     background-color: var(--surface-hover);
     transform: translateY(-4px);
 }
 
-.form-select:active:not(:disabled),
-.form-select:focus {
+.plinko-page .form-select:active:not(:disabled),
+.plinko-page .form-select:focus {
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
     border: none;
 }
 
-.form-select:disabled {
+.plinko-page .form-select:disabled {
     cursor: not-allowed;
     opacity: 0.4;
     transform: none;
@@ -347,20 +347,20 @@
     background-image: none;
 }
 
-.form-select option {
+.plinko-page .form-select option {
     background: var(--sidebar-bg);
     color: var(--text-primary);
     padding: 8px;
 }
 
 /* Auto Bet Input - 3D Style */
-.auto-bet-input {
+.plinko-page .auto-bet-input {
     position: relative;
     transform: translateY(-4px);
     transition: all 0.15s ease;
 }
 
-.auto-bet-input input {
+.plinko-page .auto-bet-input input {
     width: 100%;
     padding: 12px 36px 12px 12px;
     background-color: var(--surface-2);
@@ -374,29 +374,29 @@
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.auto-bet-input input:focus {
+.plinko-page .auto-bet-input input:focus {
     transform: translateY(2px);
     box-shadow: 0 2px 0 rgba(47, 140, 255, 0.5), 0 2px 6px rgba(0, 0, 0, 0.2);
     background-color: var(--surface-hover);
 }
 
-.auto-bet-input input.error {
+.plinko-page .auto-bet-input input.error {
     box-shadow: 0 4px 0 #ef4444, 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.auto-bet-input input.error:focus {
+.plinko-page .auto-bet-input input.error:focus {
     transform: translateY(2px);
     box-shadow: 0 2px 0 #ef4444, 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.auto-bet-input input:disabled {
+.plinko-page .auto-bet-input input:disabled {
     cursor: not-allowed;
     opacity: 0.4;
     transform: translateY(4px);
     box-shadow: none;
 }
 
-.infinity-icon {
+.plinko-page .infinity-icon {
     position: absolute;
     right: 12px;
     top: 50%;
@@ -408,7 +408,7 @@
 }
 
 /* Bet Button - Primary Action Button (3D Box Style like DinoGame) */
-.bet-button {
+.plinko-page .bet-button {
     width: 100%;
     padding: 16px;
     background: var(--primary);
@@ -430,18 +430,18 @@
     box-shadow: 0 6px 0 var(--primary-active), 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-.bet-button:hover:not(:disabled) {
+.plinko-page .bet-button:hover:not(:disabled) {
     background: var(--primary-hover);
     transform: translateY(-4px);
     box-shadow: 0 4px 0 var(--primary-active), 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.bet-button:active:not(:disabled) {
+.plinko-page .bet-button:active:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 2px 0 var(--primary-active), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.bet-button:disabled {
+.plinko-page .bet-button:disabled {
     background: #525252;
     color: #a3a3a3;
     cursor: not-allowed;
@@ -450,21 +450,21 @@
     opacity: 0.6;
 }
 
-.bet-button.stop {
+.plinko-page .bet-button.stop {
     background: #eab308;
     box-shadow: 0 6px 0 #966d06, 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-.bet-button.stop:hover:not(:disabled) {
+.plinko-page .bet-button.stop:hover:not(:disabled) {
     background: #ca8a04;
     box-shadow: 0 4px 0 #966d06, 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.bet-button.stop:hover:not(:disabled) {
+.plinko-page .bet-button.stop:hover:not(:disabled) {
     box-shadow: 0 6px 20px rgba(234, 179, 8, 0.4);
 }
 
-.bet-button:disabled {
+.plinko-page .bet-button:disabled {
     background: #525252;
     color: #a3a3a3;
     cursor: not-allowed;
@@ -478,7 +478,7 @@
    ================================================================= */
 
 /* Base Card Styles (3D Box Style like DinoGame) */
-.sidebar-card {
+.plinko-page .sidebar-card {
     margin: var(--card-margin);
     padding: var(--card-padding);
     background: var(--card-bg);
@@ -489,21 +489,21 @@
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.sidebar-card:hover {
+.plinko-page .sidebar-card:hover {
     border-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 /* Ball Selector Card */
-.ball-selector-card {
+.plinko-page .ball-selector-card {
     background: var(--ball-selector-bg);
     border-color: var(--ball-selector-border);
     border-width: 1px;
     position: relative;
 }
 
-.ball-selector-header {
+.plinko-page .ball-selector-header {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -515,12 +515,12 @@
     letter-spacing: 0.5px;
 }
 
-.ball-selector-header .anticon {
+.plinko-page .ball-selector-header .anticon {
     color: var(--text-secondary);
     font-size: 14px;
 }
 
-.ball-types-grid {
+.plinko-page .ball-types-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -528,7 +528,7 @@
     width: 100%;
 }
 
-.ball-type-option {
+.plinko-page .ball-type-option {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -548,32 +548,32 @@
     box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.ball-type-option:hover:not(.selected) {
+.plinko-page .ball-type-option:hover:not(.selected) {
     background: var(--surface-hover);
     transform: translateY(-2px);
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.ball-type-option:active:not(.selected) {
+.plinko-page .ball-type-option:active:not(.selected) {
     transform: translateY(0);
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
 }
 
-.ball-type-option.selected {
+.plinko-page .ball-type-option.selected {
     background: var(--surface-1);
     border: 2px solid var(--primary);
     transform: translateY(2px);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-.ball-type-content {
+.plinko-page .ball-type-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
 }
 
-.ball-type-name {
+.plinko-page .ball-type-name {
     font-size: 13px;
     color: var(--text-primary);
     font-weight: 600;
@@ -583,24 +583,24 @@
     line-height: 1.3;
 }
 
-.ball-type-option.selected .ball-type-name {
+.plinko-page .ball-type-option.selected .ball-type-name {
     font-weight: 700;
     color: #fff;
 }
 
-.ball-type-cost {
+.plinko-page .ball-type-cost {
     font-size: 11px;
     color: var(--text-secondary);
     margin-top: 2px;
     font-weight: 500;
 }
 
-.ball-type-option.selected .ball-type-cost {
+.plinko-page .ball-type-option.selected .ball-type-cost {
     color: rgba(255, 255, 255, 0.7);
 }
 
 /* Ball Color Circle */
-.ball-color-circle {
+.plinko-page .ball-color-circle {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -609,24 +609,24 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.ball-type-option.selected .ball-color-circle {
+.plinko-page .ball-type-option.selected .ball-color-circle {
     border-color: rgba(255, 255, 255, 0.25);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.ball-color-circle.small {
+.plinko-page .ball-color-circle.small {
     width: 16px;
     height: 16px;
     border-width: 1px;
 }
 
 /* Last Win Card */
-.last-win-card {
+.plinko-page .last-win-card {
     background: var(--card-bg);
     border-color: var(--card-border);
 }
 
-.last-win-header {
+.plinko-page .last-win-header {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -635,7 +635,7 @@
     margin-bottom: 12px;
 }
 
-.last-win-multiplier {
+.plinko-page .last-win-multiplier {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -650,17 +650,17 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.last-win-profit {
+.plinko-page .last-win-profit {
     text-align: center;
     font-size: 16px;
     font-weight: 700;
 }
 
-.last-win-profit.positive {
+.plinko-page .last-win-profit.positive {
     color: var(--primary);
 }
 
-.last-win-profit.negative {
+.plinko-page .last-win-profit.negative {
     color: #ff4d4f;
 }
 
@@ -671,19 +671,19 @@
    SIDEBAR FOOTER
    ================================================================= */
 
-.sidebar-footer {
+.plinko-page .sidebar-footer {
     margin-top: auto;
     padding-top: 16px;
     border-top: 1px solid var(--sidebar-border);
 }
 
-.footer-buttons {
+.plinko-page .footer-buttons {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.footer-btn {
+.plinko-page .footer-btn {
     width: 36px;
     height: 36px;
     border-radius: 8px;
@@ -697,18 +697,18 @@
     justify-content: center;
 }
 
-.footer-btn:hover {
+.plinko-page .footer-btn:hover {
     background: var(--surface-hover);
     color: var(--text-primary);
 }
 
-.footer-btn:active,
-.footer-btn.active {
+.plinko-page .footer-btn:active,
+.plinko-page .footer-btn.active {
     background: var(--surface-1);
     color: var(--text-primary);
 }
 
-.footer-btn svg {
+.plinko-page .footer-btn svg {
     width: 18px;
     height: 18px;
 }
@@ -718,7 +718,7 @@
    ================================================================= */
 
 @media (max-width: 768px) {
-    .sidebar {
+    .plinko-page .sidebar {
         width: 100%;
         min-width: auto;
         border-right: none;
@@ -727,69 +727,69 @@
         gap: 12px;
     }
 
-    .sidebar-card {
+    .plinko-page .sidebar-card {
         margin: 0 0 12px 0;
         padding: 10px;
     }
 
-    .bet-amount-row {
+    .plinko-page .bet-amount-row {
         flex-direction: column;
         gap: 8px;
     }
 
-    .bet-amount-input input {
+    .plinko-page .bet-amount-input input {
         border-radius: 8px;
         border-right: 1px solid var(--card-border);
         padding-left: 32px;
     }
 
-    .bet-adjust-btn {
+    .plinko-page .bet-adjust-btn {
         border-left: none;
         border-top: 1px solid var(--card-border);
         border-radius: 0 0 8px 8px;
         justify-content: space-between;
     }
 
-    .bet-adjust-btn.last {
+    .plinko-page .bet-adjust-btn.last {
         border-radius: 0;
     }
 
-    .ball-types-grid {
+    .plinko-page .ball-types-grid {
         grid-template-columns: 1fr;
         gap: 6px;
     }
 
-    .streak-stats {
+    .plinko-page .streak-stats {
         flex-direction: column;
         gap: 8px;
     }
 
-    .footer-buttons {
+    .plinko-page .footer-buttons {
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-    .sidebar {
+    .plinko-page .sidebar {
         padding: 8px;
         gap: 8px;
     }
 
-    .form-group {
+    .plinko-page .form-group {
         margin-bottom: 12px;
     }
 
-    .sidebar-card {
+    .plinko-page .sidebar-card {
         margin: 0 0 8px 0;
         padding: 8px;
     }
 
-    .bet-button {
+    .plinko-page .bet-button {
         padding: 12px;
         font-size: 14px;
     }
 
-    .streak-value {
+    .plinko-page .streak-value {
         font-size: 20px;
     }
 }

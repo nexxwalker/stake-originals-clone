@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useWallet } from '../context/WalletContext'
-
-const GAME_PATHS = ['/crash', '/plinko', '/dino', '/mines']
+import { useThemeSettings } from '../context/ThemeContext'
+import { isGamePath } from '../games'
 
 // Reusable Bitcoin icon component (matches btc-icon in game sidebars)
 const BtcIcon = ({ size = 20, fontSize = 12 }) => (
@@ -26,11 +26,12 @@ const BtcIcon = ({ size = 20, fontSize = 12 }) => (
 function Header() {
     const location = useLocation()
     const { balance, deposit, resetBalance, transactions, toasts } = useWallet()
+    const { paletteId, palettes, setPaletteId } = useThemeSettings()
     const [showWalletDropdown, setShowWalletDropdown] = useState(false)
     const [depositAmount, setDepositAmount] = useState('')
     const dropdownRef = useRef(null)
 
-    const isGamePage = GAME_PATHS.some(p => location.pathname.startsWith(p))
+    const isGamePage = isGamePath(location.pathname)
     const isHomePage = location.pathname === '/'
 
     // Close dropdown when clicking outside
@@ -208,6 +209,19 @@ function Header() {
             </div>
 
             <div className="header-right">
+                <label className="palette-select-label">
+                    <span className="palette-select-text">Palette</span>
+                    <select
+                        className="palette-select"
+                        value={paletteId}
+                        onChange={(event) => setPaletteId(event.target.value)}
+                        aria-label="Color palette"
+                    >
+                        {palettes.map((palette) => (
+                            <option key={palette.id} value={palette.id}>{palette.name}</option>
+                        ))}
+                    </select>
+                </label>
                 {isGamePage ? (
                     /* Icons when on game page */
                     <>

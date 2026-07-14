@@ -18,6 +18,7 @@ function getStoredBalance() {
 
 export function WalletProvider({ children }) {
     const [balance, setBalance] = useState(getStoredBalance)
+    const balanceRef = useRef(balance)
     const [currency, setCurrency] = useState('USD')
     const [transactions, setTransactions] = useState([])
 
@@ -33,77 +34,65 @@ export function WalletProvider({ children }) {
         }, duration)
     }, [])
 
-    // Update balance and persist to localStorage
-    const updateBalance = useCallback((newBalance) => {
-        const rounded = parseFloat(newBalance.toFixed(2))
+    const setStoredBalance = useCallback((nextBalance) => {
+        const rounded = parseFloat(nextBalance.toFixed(2))
+        balanceRef.current = rounded
         setBalance(rounded)
         try { localStorage.setItem(STORAGE_KEY, rounded.toString()) } catch (e) { /* ignore */ }
+        return rounded
     }, [])
+
+    // Update balance and persist to localStorage
+    const updateBalance = useCallback((newBalance) => {
+        setStoredBalance(newBalance)
+    }, [setStoredBalance])
 
     // Place a bet (deduct from balance)
     const placeBet = useCallback((amount) => {
         const amt = parseFloat(amount)
-        if (isNaN(amt) || amt <= 0) return false
+        if (isNaN(amt) || amt <= 0 || amt > balanceRef.current) return false
 
-        setBalance(prev => {
-            if (amt > prev) return prev // Can't bet more than balance
-            const newBal = parseFloat((prev - amt).toFixed(2))
-            try { localStorage.setItem(STORAGE_KEY, newBal.toString()) } catch (e) { /* ignore */ }
+        const newBal = setStoredBalance(balanceRef.current - amt)
+        setTransactions(txs => [{
+            id: Date.now(),
+            type: 'bet',
+            amount: -amt,
+            balance: newBal,
+            timestamp: new Date(),
+        }, ...txs].slice(0, 100))
 
-            setTransactions(txs => [{
-                id: Date.now(),
-                type: 'bet',
-                amount: -amt,
-                balance: newBal,
-                timestamp: new Date(),
-            }, ...txs].slice(0, 100))
-
-            return newBal
-        })
         return true
-    }, [])
+    }, [setStoredBalance])
 
     // Add winnings to balance
     const addWinnings = useCallback((amount) => {
         const amt = parseFloat(amount)
         if (isNaN(amt) || amt <= 0) return
 
-        setBalance(prev => {
-            const newBal = parseFloat((prev + amt).toFixed(2))
-            try { localStorage.setItem(STORAGE_KEY, newBal.toString()) } catch (e) { /* ignore */ }
-
-            setTransactions(txs => [{
-                id: Date.now(),
-                type: 'win',
-                amount: amt,
-                balance: newBal,
-                timestamp: new Date(),
-            }, ...txs].slice(0, 100))
-
-            return newBal
-        })
-    }, [])
+        const newBal = setStoredBalance(balanceRef.current + amt)
+        setTransactions(txs => [{
+            id: Date.now(),
+            type: 'win',
+            amount: amt,
+            balance: newBal,
+            timestamp: new Date(),
+        }, ...txs].slice(0, 100))
+    }, [setStoredBalance])
 
     // Deposit funds
     const deposit = useCallback((amount) => {
         const amt = parseFloat(amount)
         if (isNaN(amt) || amt <= 0) return
 
-        setBalance(prev => {
-            const newBal = parseFloat((prev + amt).toFixed(2))
-            try { localStorage.setItem(STORAGE_KEY, newBal.toString()) } catch (e) { /* ignore */ }
-
-            setTransactions(txs => [{
-                id: Date.now(),
-                type: 'deposit',
-                amount: amt,
-                balance: newBal,
-                timestamp: new Date(),
-            }, ...txs].slice(0, 100))
-
-            return newBal
-        })
-    }, [])
+        const newBal = setStoredBalance(balanceRef.current + amt)
+        setTransactions(txs => [{
+            id: Date.now(),
+            type: 'deposit',
+            amount: amt,
+            balance: newBal,
+            timestamp: new Date(),
+        }, ...txs].slice(0, 100))
+    }, [setStoredBalance])
 
     // Reset balance to initial
     const resetBalance = useCallback(() => {

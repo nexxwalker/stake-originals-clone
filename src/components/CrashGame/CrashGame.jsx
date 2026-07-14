@@ -447,7 +447,10 @@ function CrashGame() {
             showToast('error', 'Insufficient Balance', `You need ₿${amount.toFixed(2)} but only have ₿${balance.toFixed(2)}`)
             return
         }
-        placeBet(amount)
+        if (!placeBet(amount)) {
+            showToast('error', 'Insufficient Balance', `You need ₿${amount.toFixed(2)} but only have ₿${balance.toFixed(2)}`)
+            return
+        }
         setBetAmount(amount)
         setBetPlaced(true)
         setUserBetData({
@@ -754,6 +757,7 @@ function CrashGame() {
                 onCancel={() => setHistoryDrawerOpen(false)}
                 open={historyDrawerOpen}
                 width={460}
+                rootClassName="crash-history-modal-portal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -834,6 +838,7 @@ function CrashGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
+                rootClassName="crash-fairness-modal-portal"
                 className="fairness-modal"
                 centered
             >

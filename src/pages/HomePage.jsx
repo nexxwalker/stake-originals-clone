@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom'
+import { GAMES } from '../games'
 import '../styles/home.css'
 
 const games = [
-    { id: 'crash', name: 'Crash', image: '/images/crash.avif', path: '/crash', rtp: '97% RTP', volatility: 'High volatility' },
-    { id: 'plinko', name: 'Plinko', image: '/images/plinko.avif', path: '/plinko', rtp: '96% RTP', volatility: 'Medium volatility' },
-    { id: 'dino', name: 'Dino', image: '/images/dino.avif', path: '/dino', rtp: '96% RTP', volatility: 'Low volatility' },
-    { id: 'mines', name: 'Mines', image: '/images/mines.avif', path: '/mines', rtp: '96% RTP', volatility: 'Medium volatility' },
+    ...GAMES,
     { id: 'dice', name: 'Dice', comingSoon: true },
     { id: 'limbo', name: 'Limbo', comingSoon: true },
 ]
