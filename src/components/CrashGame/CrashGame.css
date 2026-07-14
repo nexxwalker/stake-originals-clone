@@ -152,19 +152,11 @@
     border-radius: 0 8px 8px 0 !important;
 }
 
-/* Make sure the main input doesn't round corners next to addons */
-.crash-game .betting-panel-3d .ant-input-number-group-wrapper .ant-input-number {
-    border-radius: 0 !important;
-}
-
-/* When the wrapper only has an addon Before, the input sits on the right */
-.crash-game .betting-panel-3d .ant-input-number-group-wrapper:not(:has(.ant-input-number-group-addon:last-child)) .ant-input-number {
-    border-radius: 0 8px 8px 0 !important;
-}
-
-/* When the wrapper only has an addon After, the input sits on the left */
-.crash-game .betting-panel-3d .ant-input-number-group-wrapper:not(:has(.ant-input-number-group-addon:first-child)) .ant-input-number {
-    border-radius: 8px 0 0 8px !important;
+.crash-game .betting-panel-3d
+.ant-space-addon-compact-first-item.ant-input-number-addon
++ .ant-input-number-compact-last-item {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
 .crash-game .betting-panel-3d .ant-input-number-group-addon .btc-icon,

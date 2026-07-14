@@ -379,6 +379,13 @@
     padding: 0 12px !important;
 }
 
+.mines-game .mines-sidebar
+.ant-space-addon-compact-first-item.ant-input-number-addon
++ .ant-input-number-compact-last-item {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
 /* Currency Icon inside addon - Bitcoin Style */
 .mines-game .mines-sidebar .ant-input-number-group-addon .dino-currency-icon,
 .mines-game .mines-sidebar .ant-input-number-addon .dino-currency-icon {

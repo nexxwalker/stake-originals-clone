@@ -218,6 +218,13 @@
     padding: 0 12px !important;
 }
 
+.plinko-page .sidebar
+.ant-space-addon-compact-first-item.ant-input-number-addon
++ .ant-input-number-compact-last-item {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
 .plinko-page .sidebar .ant-input-number-group-addon .btc-icon,
 .plinko-page .sidebar .ant-input-number-addon .btc-icon {
     background: linear-gradient(135deg, #f7931a, #ffb347) !important;
