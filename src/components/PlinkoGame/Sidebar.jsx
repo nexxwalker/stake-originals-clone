@@ -34,70 +34,57 @@ function Sidebar({
     const [betMode, setBetMode] = useState('manual'); // 'manual' | 'auto'
     const [autoBetInput, setAutoBetInput] = useState(0);
     const [autoBetsLeft, setAutoBetsLeft] = useState(null);
-    const autoBetIntervalRef = useRef(null);
+    const [isAutoBetting, setIsAutoBetting] = useState(false);
+    const autoBetTickRunningRef = useRef(false);
+    const autoBetSessionRef = useRef(0);
 
     // Validation
     const isBetAmountNegative = betAmount < 0;
     const isBetExceedBalance = betAmount > balance;
     const isAutoBetInputNegative = autoBetInput < 0;
     const isDropBallDisabled = isBetAmountNegative || isBetExceedBalance || isAutoBetInputNegative;
-    const isAutoBetting = autoBetIntervalRef.current !== null;
-
-    // Reset auto bet
-    const resetAutoBetInterval = useCallback(() => {
-        if (autoBetIntervalRef.current !== null) {
-            clearInterval(autoBetIntervalRef.current);
-            autoBetIntervalRef.current = null;
-        }
-    }, []);
 
     // Auto bet drop ball
-    const autoBetDropBall = useCallback(() => {
-        if (betAmount > balance) {
-            resetAutoBetInterval();
-            return;
-        }
+    const autoBetDropBall = useCallback(async () => {
+        if (autoBetTickRunningRef.current) return;
+        autoBetTickRunningRef.current = true;
 
-        // Infinite mode
-        if (autoBetsLeft === null) {
-            onDropBall?.();
-            return;
+        const session = autoBetSessionRef.current;
+        try {
+            const result = await onDropBall?.(() => session !== autoBetSessionRef.current);
+            if (result === 'insufficient-funds') {
+                setIsAutoBetting(false);
+            } else if (result === 'dropped' && autoBetsLeft !== null) {
+                setAutoBetsLeft(prev => prev - 1);
+            }
+        } finally {
+            autoBetTickRunningRef.current = false;
         }
-
-        // Finite mode
-        if (autoBetsLeft > 0) {
-            onDropBall?.();
-            setAutoBetsLeft(prev => prev - 1);
-        }
-    }, [betAmount, balance, autoBetsLeft, onDropBall, resetAutoBetInterval]);
-
-    // Check if auto bet should stop
-    useEffect(() => {
-        if (autoBetsLeft === 0 && autoBetIntervalRef.current !== null) {
-            resetAutoBetInterval();
-        }
-    }, [autoBetsLeft, resetAutoBetInterval]);
+    }, [autoBetsLeft, isAutoBetting, onDropBall]);
 
     // Start/stop auto bet interval
     useEffect(() => {
-        if (isAutoBetting) {
-            const intervalId = setInterval(autoBetDropBall, AUTO_BET_INTERVAL_MS);
-            autoBetIntervalRef.current = intervalId;
-            return () => clearInterval(intervalId);
-        }
+        if (!isAutoBetting) return;
+
+        const intervalId = setInterval(autoBetDropBall, AUTO_BET_INTERVAL_MS);
+        return () => clearInterval(intervalId);
     }, [isAutoBetting, autoBetDropBall]);
+
+    useEffect(() => {
+        if (autoBetsLeft === 0) setIsAutoBetting(false);
+    }, [autoBetsLeft]);
 
     const handleBetClick = () => {
         if (betMode === 'manual') {
             onDropBall?.();
-        } else if (!isAutoBetting) {
-            // Start auto bet
-            setAutoBetsLeft(autoBetInput === 0 ? null : autoBetInput);
-            autoBetIntervalRef.current = setInterval(autoBetDropBall, AUTO_BET_INTERVAL_MS);
-        } else {
-            // Stop auto bet
-            resetAutoBetInterval();
+        } else if (isAutoBetting) {
+            autoBetSessionRef.current++;
+            setIsAutoBetting(false);
             setAutoBetsLeft(null);
+        } else {
+            autoBetSessionRef.current++;
+            setAutoBetsLeft(autoBetInput === 0 ? null : autoBetInput);
+            setIsAutoBetting(true);
         }
     };
 
@@ -110,11 +97,6 @@ function Sidebar({
         const value = parseInt(e.target.value);
         setAutoBetInput(isNaN(value) ? 0 : value);
     };
-
-    // Cleanup
-    useEffect(() => {
-        return () => resetAutoBetInterval();
-    }, [resetAutoBetInterval]);
 
     const riskLevels = [
         { value: 'low', label: 'Low' },

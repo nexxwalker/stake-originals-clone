@@ -5,6 +5,7 @@ export const DEFAULT_BALANCE = 200;
 export const ROW_COUNT_OPTIONS = [8, 9, 10, 11, 12, 13, 14, 15, 16];
 
 export const AUTO_BET_INTERVAL_MS = 250;
+export const MAX_ACTIVE_BALLS = 20;
 
 // Multipliers of each bin by row count and risk level
 export const BIN_PAYOUTS = {

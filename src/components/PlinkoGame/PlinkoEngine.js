@@ -3,7 +3,7 @@
 // Ball drops at a precise X → physics naturally guides it to the correct bin.
 
 import { Ball, pad, unpad } from './Ball';
-import { BIN_PAYOUTS } from './constants';
+import { BIN_PAYOUTS, MAX_ACTIVE_BALLS } from './constants';
 
 const WIDTH = 760;
 const HEIGHT = 570;
@@ -231,6 +231,8 @@ class PlinkoEngine {
      * @param {string} ballType - The identifier for the ball type being dropped
      */
     dropBall(binIndex, ballType) {
+        if (this.getActiveBallCount() >= MAX_ACTIVE_BALLS) return null;
+
         // Get pre-calculated X for this bin
         const dropX = this._getDropXForBin(binIndex);
         const startY = pad(0);
@@ -272,6 +274,8 @@ class PlinkoEngine {
      * Note: This doesn't guarantee a specific bin - use dropBall(binIndex) instead
      */
     dropBallRandom() {
+        if (this.getActiveBallCount() >= MAX_ACTIVE_BALLS) return null;
+
         const spawnRange = this.pinDistanceX * 0.8;
         const startX = pad(WIDTH / 2 + (Math.random() - 0.5) * spawnRange);
 
@@ -384,8 +388,12 @@ class PlinkoEngine {
         this.betAmountOfExistingBalls = {};
     }
 
+    getActiveBallCount() {
+        return this.balls.length;
+    }
+
     hasOutstandingBalls() {
-        return this.balls.length > 0;
+        return this.getActiveBallCount() > 0;
     }
 }
 

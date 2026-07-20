@@ -37,6 +37,7 @@ import Chart from 'chart.js/auto';
 import Plinko from './Plinko';
 import Sidebar from './Sidebar';
 import { DEFAULT_BALANCE, getBinColors, BIN_PAYOUTS } from './constants';
+import { dropPlinkoBall } from './dropPlinkoBall';
 import { ProvablyFair } from '../../utils/ProvablyFair';
 import { useWallet } from '../../context/WalletContext';
 import './PlinkoGame.css';
@@ -137,6 +138,7 @@ function PlinkoGame() {
     const [debugData, setDebugData] = useState(null);
 
     const engineRef = useRef(null);
+    const pendingDropsRef = useRef(0);
     const gameDisplayRef = useRef(null);
     const chartCanvasRef = useRef(null);
     const chartInstanceRef = useRef(null);
@@ -437,24 +439,17 @@ function PlinkoGame() {
     }, [isDebugMode, rowCount, provablyFair, winRecords]);
 
     // Drop ball
-    const handleDropBall = useCallback(async () => {
-        if (engineRef.current && provablyFair) {
-            // Deduct bet from wallet
-            if (!placeBet(betAmount)) return;
-
-            engineRef.current.updateBallStyle(currentBall.color, currentBall.image);
-
-            // Get provably fair path result BEFORE physics drops it
-            const fairnessResult = await provablyFair.generatePlinkoPath(rowCount);
-
-            // Count rights in path = bin index (deterministic outcome)
-            // e.g. path [0,1,1,0,1,...] → binIndex = sum of 1s
-            const binIndex = fairnessResult.path.reduce((sum, dir) => sum + dir, 0);
-
-            // Physics will naturally guide it to the correct bucket
-            engineRef.current.dropBall(binIndex, selectedBallType);
-        }
-    }, [currentBall, rowCount, provablyFair, selectedBallType, betAmount, balance, placeBet]);
+    const handleDropBall = useCallback((isCancelled) => dropPlinkoBall({
+        engine: engineRef.current,
+        pendingDrops: pendingDropsRef,
+        provablyFair,
+        rowCount,
+        betAmount,
+        currentBall,
+        selectedBallType,
+        placeBet,
+        isCancelled,
+    }), [currentBall, rowCount, provablyFair, selectedBallType, betAmount, placeBet]);
 
     // Fullscreen toggle
     const toggleFullscreen = useCallback(() => {
