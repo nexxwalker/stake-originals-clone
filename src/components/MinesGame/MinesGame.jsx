@@ -20,6 +20,7 @@ import Chart from 'chart.js/auto'
 const { Title, Text, Paragraph } = Typography;
 import { useWallet } from '../../context/WalletContext'
 import ProvablyFair from '../../utils/ProvablyFair'
+import MobileBetSheet from '../MobileBetSheet'
 import './MinesGame.css'
 
 const HOUSE_EDGE = 0.99; // 1% edge
@@ -514,11 +515,12 @@ function MinesGame() {
         <div className="mines-game">
             <div className="game-container">
                 {/* Sidebar Controls */}
-                <div className="mines-sidebar">
+                <MobileBetSheet title="Mines bet controls" className="mines-bet-sheet">
+                    <div className="mines-sidebar">
                     <div className="mines-sidebar-content">
                         <div className="mines-bet-panel">
                             {/* Bet Mode Tabs */}
-                            <div className="bet-mode-tabs">
+                            <div className="bet-mode-tabs mobile-sheet-secondary">
                                 <button
                                     className={`bet-mode-tab ${autoTab === 'manual' ? 'active' : ''}`}
                                     onClick={() => setAutoTab('manual')}
@@ -573,7 +575,7 @@ function MinesGame() {
 
 
                             {/* Mines Selection */}
-                            <div className="form-group">
+                            <div className="form-group mobile-sheet-secondary">
                                 <label className="form-label">Mines</label>
                                 <div className="mines-select-wrapper">
                                     <select
@@ -590,7 +592,7 @@ function MinesGame() {
                             </div>
 
                             {/* Gems Display */}
-                            <div className="form-group">
+                            <div className="form-group mobile-sheet-secondary">
                                 <label className="form-label">Gems</label>
                                 <div className="input-with-controls">
                                     <input
@@ -618,7 +620,7 @@ function MinesGame() {
                                         Cashout
                                     </button>
                                     <button
-                                        className="btn-random-pick"
+                                        className="btn-random-pick mobile-sheet-secondary"
                                         onClick={pickRandom}
                                     >
                                         Random Pick
@@ -627,7 +629,7 @@ function MinesGame() {
                             )}
 
                             {/* Total Profit Display (Updated real-time as you pick) */}
-                            <div className="form-group" style={{ marginTop: 'auto' }}>
+                            <div className="form-group mobile-sheet-secondary" style={{ marginTop: 'auto' }}>
                                 <div className="form-header">
                                     <label className="form-label" style={{ margin: 0 }}>Total Profit ({currentMultiplier.toFixed(2)}×)</label>
                                     <span style={{ color: revealedTiles.length > 0 ? 'var(--success)' : 'var(--text-secondary)' }}>
@@ -651,7 +653,7 @@ function MinesGame() {
                     </div>
 
                     {/* Left Sidebar Footer */}
-                    <div className="sidebar-footer">
+                    <div className="sidebar-footer mobile-sheet-secondary">
                         <div className="footer-buttons">
                             <button
                                 className={`footer-btn ${statsDrawerOpen ? 'active' : ''}`}
@@ -676,7 +678,8 @@ function MinesGame() {
                             </button>
                         </div>
                     </div>
-                </div>
+                    </div>
+                </MobileBetSheet>
 
                 {/* Game Display Wrapper */}
                 <div className="mines-display-wrapper">
@@ -771,7 +774,7 @@ function MinesGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
-                rootClassName="mines-fairness-modal-portal"
+                rootClassName="mines-fairness-modal-portal mobile-game-modal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{
@@ -858,7 +861,7 @@ function MinesGame() {
                 width={700}
                 centered
                 closable={true}
-                rootClassName="mines-history-modal-portal"
+                rootClassName="mines-history-modal-portal mobile-game-modal"
                 className="box-modal-3d"
                 closeIcon={<CloseOutlined />}
             >

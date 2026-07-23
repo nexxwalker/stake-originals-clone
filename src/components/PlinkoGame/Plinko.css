@@ -176,3 +176,17 @@
         font-size: 8px;
     }
 }
+
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
+    .plinko-page .plinko-board-wrapper,
+    .plinko-page .plinko-canvas-container {
+        width: 100%;
+        aspect-ratio: 760 / 570;
+    }
+
+    .plinko-page .plinko-canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}

@@ -1360,3 +1360,73 @@
     max-width: 60%;
     text-align: right;
 }
+
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
+    .mines-game {
+        height: auto;
+        min-height: calc(min(100vw, 560px) + 196px);
+        padding-bottom: 196px;
+    }
+
+    .mines-game .game-container {
+        display: block;
+        flex: none;
+        overflow: visible;
+    }
+
+    .mines-game .mines-display-wrapper {
+        min-height: auto;
+        overflow: visible;
+    }
+
+    .mines-game .mines-display {
+        width: min(100%, 560px);
+        max-height: none;
+        aspect-ratio: 1;
+        padding: 12px;
+    }
+
+    .mines-game .mines-grid {
+        gap: clamp(5px, 2vw, 8px);
+        padding: 4px;
+    }
+
+    .mines-game .mine-tile {
+        border-radius: 9px;
+    }
+
+    .mines-bet-sheet .mines-sidebar {
+        width: 100%;
+        min-width: 0;
+        border: 0;
+    }
+
+    .mines-bet-sheet[data-state='collapsed'] .mines-sidebar-content {
+        overflow: hidden;
+        padding: 10px 12px 0;
+    }
+
+    .mines-bet-sheet[data-state='collapsed'] .mines-bet-panel {
+        gap: 8px;
+    }
+
+    .mines-bet-sheet[data-state='collapsed'] .form-group {
+        margin-bottom: 0;
+    }
+
+    .mines-bet-sheet .btn-bet-mines {
+        min-height: 48px;
+    }
+
+    .mobile-game-modal .ant-modal {
+        width: calc(100vw - 24px) !important;
+        max-width: none;
+        margin: 12px auto;
+        padding-bottom: 0;
+    }
+
+    .mobile-game-modal .ant-modal-content {
+        max-height: calc(100dvh - 24px);
+        overflow: auto;
+    }
+}

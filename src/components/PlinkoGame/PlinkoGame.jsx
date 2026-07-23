@@ -36,6 +36,7 @@ import {
 import Chart from 'chart.js/auto';
 import Plinko from './Plinko';
 import Sidebar from './Sidebar';
+import MobileBetSheet from '../MobileBetSheet';
 import { DEFAULT_BALANCE, getBinColors, BIN_PAYOUTS } from './constants';
 import { dropPlinkoBall } from './dropPlinkoBall';
 import { ProvablyFair } from '../../utils/ProvablyFair';
@@ -476,32 +477,34 @@ function PlinkoGame() {
 
                 <div className="plinko-container">
                     {/* Sidebar - LEFT */}
-                    <div className="plinko-sidebar-wrapper">
-                        <Sidebar
-                            balance={balance}
-                            betAmount={betAmount}
-                            setBetAmount={setBetAmount}
-                            rowCount={rowCount}
-                            setRowCount={setRowCount}
-                            riskLevel={riskLevel}
-                            setRiskLevel={setRiskLevel}
-                            hasOutstandingBalls={hasOutstandingBalls}
-                            onDropBall={handleDropBall}
-                            onSettingsClick={() => setIsSettingsOpen(!isSettingsOpen)}
-                            onStatsClick={() => setStatsDrawerOpen(true)}
-                            isSettingsOpen={isSettingsOpen}
-                            isStatsOpen={statsDrawerOpen}
-                            selectedBallType={selectedBallType}
-                            setSelectedBallType={setSelectedBallType}
-                            ballTypes={BALL_TYPES}
-                            currentBall={currentBall}
-                            lastWin={lastWin}
-                            winRecords={winRecords}
-                            currentStreak={currentStreak}
-                            maxStreak={maxStreak}
-                            effectiveBetCost={effectiveBetCost}
-                        />
-                    </div>
+                    <MobileBetSheet title="Plinko bet controls" className="plinko-bet-sheet">
+                        <div className="plinko-sidebar-wrapper">
+                            <Sidebar
+                                balance={balance}
+                                betAmount={betAmount}
+                                setBetAmount={setBetAmount}
+                                rowCount={rowCount}
+                                setRowCount={setRowCount}
+                                riskLevel={riskLevel}
+                                setRiskLevel={setRiskLevel}
+                                hasOutstandingBalls={hasOutstandingBalls}
+                                onDropBall={handleDropBall}
+                                onSettingsClick={() => setIsSettingsOpen(!isSettingsOpen)}
+                                onStatsClick={() => setStatsDrawerOpen(true)}
+                                isSettingsOpen={isSettingsOpen}
+                                isStatsOpen={statsDrawerOpen}
+                                selectedBallType={selectedBallType}
+                                setSelectedBallType={setSelectedBallType}
+                                ballTypes={BALL_TYPES}
+                                currentBall={currentBall}
+                                lastWin={lastWin}
+                                winRecords={winRecords}
+                                currentStreak={currentStreak}
+                                maxStreak={maxStreak}
+                                effectiveBetCost={effectiveBetCost}
+                            />
+                        </div>
+                    </MobileBetSheet>
 
                     {/* Plinko Game Area */}
                     <div className="plinko-game-wrapper">
@@ -747,7 +750,7 @@ function PlinkoGame() {
                 onCancel={() => setHistoryDrawerOpen(false)}
                 open={historyDrawerOpen}
                 width={460}
-                rootClassName="plinko-history-modal-portal"
+                rootClassName="plinko-history-modal-portal mobile-game-modal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -831,7 +834,7 @@ function PlinkoGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
-                rootClassName="plinko-fairness-modal-portal"
+                rootClassName="plinko-fairness-modal-portal mobile-game-modal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{

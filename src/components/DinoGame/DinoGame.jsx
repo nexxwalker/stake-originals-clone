@@ -53,6 +53,7 @@ import GameScene from './core/scenes/game/GameScene';
 import ProvablyFair from '../../utils/ProvablyFair';
 
 import { useWallet } from '../../context/WalletContext';
+import MobileBetSheet from '../MobileBetSheet';
 import './DinoGame.css';
 
 const { Text, Title, Paragraph } = Typography;
@@ -620,7 +621,12 @@ function DinoGame() {
             <div className="dino-main">
                 <div className="dino-container">
                     {/* Betting Sidebar */}
-                    <div className="dino-sidebar">
+                    <MobileBetSheet
+                        title="Dino bet controls"
+                        className="dino-bet-sheet"
+                        collapseOn={gamePhase === 'running' || gamePhase === 'waiting'}
+                    >
+                        <div className="dino-sidebar">
                         {/* Bet Mode Tabs */}
                         <div className="bet-mode-tabs">
                             <button className="bet-mode-tab active">Manual</button>
@@ -761,7 +767,7 @@ function DinoGame() {
 
                         {/* Last Result Card */}
                         {lastResult && (
-                            <div className={`last-win-card ${lastResult.type === 'loss' ? 'lost' : 'won'}`}>
+                            <div className={`last-win-card mobile-sheet-secondary ${lastResult.type === 'loss' ? 'lost' : 'won'}`}>
                                 <div className="last-win-header">
                                     <TrophyOutlined />
                                     <span>Last Game</span>
@@ -782,7 +788,7 @@ function DinoGame() {
                         )}
 
                         {/* Footer */}
-                        <div className="sidebar-footer">
+                        <div className="sidebar-footer mobile-sheet-secondary">
                             <Tooltip title="Live Stats">
                                 <Button type="text" icon={<LineChartOutlined />} className="footer-btn" onClick={() => setStatsDrawerOpen(true)} />
                             </Tooltip>
@@ -793,7 +799,8 @@ function DinoGame() {
                                 <Button type="text" icon={<SafetyCertificateOutlined />} className="footer-btn" onClick={() => setFairnessModalOpen(true)} />
                             </Tooltip>
                         </div>
-                    </div>
+                        </div>
+                    </MobileBetSheet>
 
                     {/* Game Area */}
                     <div className="dino-game-area">
@@ -1024,7 +1031,7 @@ function DinoGame() {
                 onCancel={() => setHistoryModalOpen(false)}
                 open={historyModalOpen}
                 width={460}
-                rootClassName="dino-history-modal-portal"
+                rootClassName="dino-history-modal-portal mobile-game-modal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -1089,7 +1096,7 @@ function DinoGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
-                rootClassName="dino-fairness-modal-portal"
+                rootClassName="dino-fairness-modal-portal mobile-game-modal"
                 className="fairness-modal box-modal-3d"
                 centered
                 styles={{

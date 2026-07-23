@@ -150,7 +150,17 @@
     padding: 18px 32px 0;
 }
 
-.game-category-list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.game-category-list {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    touch-action: pan-x;
+}
+
+.game-category-list::-webkit-scrollbar { display: none; }
 
 .game-category-chip {
     flex: 0 0 auto;
@@ -250,6 +260,7 @@
     .hero-description { max-width: 340px; font-size: 15px; }
     .hero-actions { flex-wrap: wrap; gap: 14px; }
     .game-category-nav { padding: 16px 20px 0; }
+    .game-category-chip { min-height: 44px; }
     .home-section { padding: 24px 20px 40px; }
     .stake-games-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .game-meta { display: block; }
@@ -257,4 +268,8 @@
     .game-meta span { display: block; }
     .stake-card-footer { min-height: 74px; }
     .card-play-label { display: none; }
+}
+
+@media (max-width: 359px) {
+    .stake-games-grid { grid-template-columns: 1fr; }
 }

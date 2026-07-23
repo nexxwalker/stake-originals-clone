@@ -168,7 +168,7 @@ function Sidebar({
             </div>
 
             {/* Risk Level */}
-            <div className="form-group">
+            <div className="form-group mobile-sheet-secondary">
                 <label htmlFor="riskLevel" className="form-label">Risk</label>
                 <select
                     id="riskLevel"
@@ -184,7 +184,7 @@ function Sidebar({
             </div>
 
             {/* Row Count */}
-            <div className="form-group">
+            <div className="form-group mobile-sheet-secondary">
                 <label htmlFor="rowCount" className="form-label">Rows</label>
                 <select
                     id="rowCount"
@@ -201,7 +201,7 @@ function Sidebar({
 
             {/* Auto Bet Input */}
             {betMode === 'auto' && (
-                <div className="form-group">
+                <div className="form-group mobile-sheet-secondary">
                     <div className="form-label-row">
                         <label htmlFor="autoBetInput" className="form-label">Number of Bets</label>
                         <span className="help-icon" title="Enter '0' for unlimited bets.">?</span>
@@ -237,7 +237,7 @@ function Sidebar({
             </button>
 
             {/* Footer */}
-            <div className="sidebar-footer">
+            <div className="sidebar-footer mobile-sheet-secondary">
                 <div className="footer-buttons">
                     <button
                         className={`footer-btn ${isSettingsOpen ? 'active' : ''}`}
@@ -261,7 +261,7 @@ function Sidebar({
             </div>
 
             {/* --- Plinko extra: Ball Selector, Last Win, Streak --- */}
-            <div className="ball-selector-card sidebar-card">
+            <div className="ball-selector-card sidebar-card mobile-sheet-secondary">
                 <div className="ball-selector-header">
                     <StarOutlined />
                     <span>Ball Type</span>

@@ -60,6 +60,9 @@
     --radius-full: 9999px;
     --transition-fast: 0.15s ease;
     --transition-normal: 0.3s ease;
+    --mobile-header-height: 52px;
+    --mobile-nav-height: 56px;
+    --mobile-nav-space: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom));
 }
 
 /* ===== Reset & Base ===== */
@@ -709,6 +712,7 @@ body {
 .app-layout {
     display: flex;
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
     background: var(--bg-primary);
     overflow: hidden;
@@ -1559,6 +1563,20 @@ body {
     color: var(--text-secondary);
 }
 
+.mobile-wallet-balance,
+.mobile-menu-button {
+    display: none;
+}
+
+.route-loading {
+    display: grid;
+    min-height: 100vh;
+    min-height: 100dvh;
+    place-items: center;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 1200px) {
     .app-sidebar {
@@ -1578,22 +1596,71 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
     .header {
-        padding: 0 12px;
+        height: var(--mobile-header-height);
+        padding: env(safe-area-inset-top) 10px 0;
     }
 
-    .palette-select-text {
+    .header-center {
+        min-width: 0;
+        margin: 0 4px 0 auto;
+    }
+
+    .header-center .search-input-wrapper,
+    .header-right > :not(.mobile-menu-button),
+    .wallet-balance-display,
+    .wallet-btn {
         display: none;
     }
 
-    .palette-select {
-        min-width: 112px;
-        max-width: 36vw;
+    .mobile-wallet-balance,
+    .mobile-menu-button {
+        display: flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
     }
 
-    .header-home .header-center {
-        margin-inline: 12px;
+    .mobile-wallet-balance {
+        max-width: min(44vw, 180px);
+        gap: 6px;
+        overflow: hidden;
+        border: 0;
+        background: transparent;
+        color: var(--text-primary);
+        font-weight: 800;
+        white-space: nowrap;
+    }
+
+    .mobile-wallet-balance span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mobile-menu-button {
+        min-width: 44px;
+        border: 0;
+        background: transparent;
+        color: var(--text-primary);
+    }
+
+    .header-wallet .wallet-dropdown {
+        position: fixed;
+        top: calc(var(--mobile-header-height) + env(safe-area-inset-top) + 4px);
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-height: calc(100dvh - var(--mobile-header-height) - var(--mobile-nav-space) - 20px);
+        overflow-y: auto;
+        transform: none;
+        animation: none;
+    }
+
+    .main-content {
+        padding-bottom: var(--mobile-nav-space);
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     .app-sidebar {

@@ -41,6 +41,7 @@ import {
 } from '@ant-design/icons'
 import Chart from 'chart.js/auto'
 import BettingPanel from './BettingPanel'
+import MobileBetSheet from '../MobileBetSheet'
 import GameChart from './GameChart'
 import GameHistory from './GameHistory'
 import PlayerBets from './PlayerBets'
@@ -57,6 +58,8 @@ const PHASE = {
     RUNNING: 'running',
     CRASHED: 'crashed'
 }
+
+const MOBILE_QUERY = '(max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none)'
 
 function CrashGame() {
     const { balance, placeBet, addWinnings, showToast } = useWallet()
@@ -86,6 +89,17 @@ function CrashGame() {
     const [historyDrawerOpen, setHistoryDrawerOpen] = useState(false)
     const [fairnessModalOpen, setFairnessModalOpen] = useState(false)
     const [layout, setLayout] = useState('default') // 'default', 'compact', 'wide'
+    const [mobileDataTab, setMobileDataTab] = useState('bets')
+    const [isMobileLayout, setIsMobileLayout] = useState(() =>
+        window.matchMedia(MOBILE_QUERY).matches,
+    )
+
+    useEffect(() => {
+        const media = window.matchMedia(MOBILE_QUERY)
+        const update = () => setIsMobileLayout(media.matches)
+        media.addEventListener('change', update)
+        return () => media.removeEventListener('change', update)
+    }, [])
 
     // History and Stats logic
     const [gameRecords, setGameRecords] = useState([])
@@ -514,56 +528,58 @@ function CrashGame() {
 
             <div className="game-container">
                 {/* Betting Panel + Player Bets */}
-                <div className="crash-sidebar">
-                    <BettingPanel
-                        phase={phase}
-                        betPlaced={betPlaced}
-                        multiplier={multiplier}
-                        onBet={handleBet}
-                        onCashout={handleCashout}
-                    />
-
-                    {/* Player Bets List */}
-                    {showPlayerBets && (
-                        <PlayerBets
+                <MobileBetSheet title="Crash bet controls" className="crash-bet-sheet">
+                    <div className="crash-sidebar">
+                        <BettingPanel
                             phase={phase}
+                            betPlaced={betPlaced}
                             multiplier={multiplier}
-                            onPlayerCashout={handlePlayerCashout}
-                            userBetData={userBetData}
+                            onBet={handleBet}
+                            onCashout={handleCashout}
                         />
-                    )}
 
-                    {/* Footer */}
-                    <div className="sidebar-footer">
-                        <div className="footer-buttons">
-                            <button
-                                className={`footer-btn ${historyDrawerOpen ? 'active' : ''}`}
-                                onClick={() => setHistoryDrawerOpen(true)}
-                                title="Play History & Dashboard"
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-                                </svg>
-                            </button>
-                            <button
-                                className={`footer-btn ${statsDrawerOpen ? 'active' : ''}`}
-                                onClick={() => setStatsDrawerOpen(true)}
-                                title="Live Stats"
-                            >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M16 11.78l4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z" />
-                                </svg>
-                            </button>
-                            <button
-                                className="footer-btn"
-                                onClick={() => setFairnessModalOpen(true)}
-                                title="Provably Fair"
-                            >
-                                <SafetyCertificateOutlined style={{ fontSize: 18 }} />
-                            </button>
+                        {/* Player Bets List */}
+                        {showPlayerBets && !isMobileLayout && (
+                            <PlayerBets
+                                phase={phase}
+                                multiplier={multiplier}
+                                onPlayerCashout={handlePlayerCashout}
+                                userBetData={userBetData}
+                            />
+                        )}
+
+                        {/* Footer */}
+                        <div className="sidebar-footer">
+                            <div className="footer-buttons">
+                                <button
+                                    className={`footer-btn ${historyDrawerOpen ? 'active' : ''}`}
+                                    onClick={() => setHistoryDrawerOpen(true)}
+                                    title="Play History & Dashboard"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                                    </svg>
+                                </button>
+                                <button
+                                    className={`footer-btn ${statsDrawerOpen ? 'active' : ''}`}
+                                    onClick={() => setStatsDrawerOpen(true)}
+                                    title="Live Stats"
+                                >
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16 11.78l4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z" />
+                                    </svg>
+                                </button>
+                                <button
+                                    className="footer-btn"
+                                    onClick={() => setFairnessModalOpen(true)}
+                                    title="Provably Fair"
+                                >
+                                    <SafetyCertificateOutlined style={{ fontSize: 18 }} />
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </MobileBetSheet>
 
                 {/* Game Display */}
                 <div className="game-display" ref={gameDisplayRef}>
@@ -577,8 +593,53 @@ function CrashGame() {
                     />
 
                     {/* Player Results (floating on chart) */}
-                    {showPlayerResults && (
+                    {showPlayerResults && !isMobileLayout && (
                         <PlayerResults cashouts={playerCashouts} />
+                    )}
+
+                    {isMobileLayout && (
+                        <section className="crash-mobile-tabs" aria-label="Crash player data">
+                            <div role="tablist" aria-label="Player data">
+                                {['bets', 'results'].map((tab, index, tabs) => (
+                                    <button
+                                        key={tab}
+                                        id={`crash-${tab}-tab`}
+                                        type="button"
+                                        role="tab"
+                                        tabIndex={mobileDataTab === tab ? 0 : -1}
+                                        aria-selected={mobileDataTab === tab}
+                                        aria-controls={`crash-${tab}-panel`}
+                                        onClick={() => setMobileDataTab(tab)}
+                                        onKeyDown={(event) => {
+                                            if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return
+                                            event.preventDefault()
+                                            const direction = event.key === 'ArrowRight' ? 1 : -1
+                                            const nextTab = tabs[(index + direction + tabs.length) % tabs.length]
+                                            setMobileDataTab(nextTab)
+                                            document.getElementById(`crash-${nextTab}-tab`)?.focus()
+                                        }}
+                                    >
+                                        {tab === 'bets' ? 'Bets' : 'Results'}
+                                    </button>
+                                ))}
+                            </div>
+                            <div
+                                id={`crash-${mobileDataTab}-panel`}
+                                role="tabpanel"
+                                aria-labelledby={`crash-${mobileDataTab}-tab`}
+                            >
+                                {showPlayerBets && mobileDataTab === 'bets' ? (
+                                    <PlayerBets
+                                        phase={phase}
+                                        multiplier={multiplier}
+                                        onPlayerCashout={handlePlayerCashout}
+                                        userBetData={userBetData}
+                                    />
+                                ) : mobileDataTab === 'results' && showPlayerResults ? (
+                                    <PlayerResults cashouts={playerCashouts} />
+                                ) : null}
+                            </div>
+                        </section>
                     )}
 
                     {/* Bottom Controls */}
@@ -757,7 +818,7 @@ function CrashGame() {
                 onCancel={() => setHistoryDrawerOpen(false)}
                 open={historyDrawerOpen}
                 width={460}
-                rootClassName="crash-history-modal-portal"
+                rootClassName="crash-history-modal-portal mobile-game-modal"
                 className="history-window box-modal-3d"
                 closeIcon={<CloseOutlined style={{ color: '#94a3b8' }} />}
             >
@@ -838,7 +899,7 @@ function CrashGame() {
                 onCancel={() => setFairnessModalOpen(false)}
                 footer={null}
                 width={480}
-                rootClassName="crash-fairness-modal-portal"
+                rootClassName="crash-fairness-modal-portal mobile-game-modal"
                 className="fairness-modal"
                 centered
             >

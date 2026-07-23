@@ -12,7 +12,13 @@ const MinesPage = lazy(() => import('./pages/MinesPage'))
 function App() {
     return (
         <AntApp>
-            <Suspense fallback={null}>
+            <Suspense
+                fallback={
+                    <div className="route-loading" role="status" aria-live="polite">
+                        Loading…
+                    </div>
+                }
+            >
                 <Routes>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<HomePage />} />

@@ -800,3 +800,32 @@
         font-size: 20px;
     }
 }
+
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
+    .plinko-bet-sheet .sidebar {
+        padding: 10px 12px 16px;
+        overflow: visible;
+    }
+
+    .plinko-bet-sheet[data-state='collapsed'] .sidebar > .bet-button {
+        position: sticky;
+        z-index: 1;
+        bottom: 0;
+    }
+
+    .plinko-bet-sheet .bet-button {
+        min-height: 48px;
+    }
+
+    .plinko-bet-sheet .ball-types-grid {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        touch-action: pan-x;
+    }
+
+    .plinko-bet-sheet .ball-type-option {
+        flex: 0 0 min(210px, 72vw);
+    }
+}

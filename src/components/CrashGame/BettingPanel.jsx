@@ -105,7 +105,7 @@ function BettingPanel({ phase, betPlaced, multiplier, onBet, onCashout }) {
                     </div>
 
                     {/* Cashout At */}
-                    <div className="form-group">
+                    <div className="form-group mobile-sheet-secondary">
                         <div className="form-header">
                             <label className="form-label" style={{ margin: 0, display: 'flex', alignItems: 'center' }}>
                                 Auto Cashout
@@ -134,7 +134,7 @@ function BettingPanel({ phase, betPlaced, multiplier, onBet, onCashout }) {
                     </div>
 
                     {/* Profit Display - 3D Card Style */}
-                    <div className="profit-card-3d">
+                    <div className="profit-card-3d mobile-sheet-secondary">
                         <div className="form-header" style={{ marginBottom: 4 }}>
                             <label className="form-label" style={{ margin: 0 }}>Profit on Win</label>
                             <Text type="secondary" style={{ margin: 0 }}>₿{profit.toFixed(2)}</Text>

@@ -1,5 +1,9 @@
 /* ===== Crash Game - Ant Design Enhanced Styles ===== */
 
+.crash-mobile-tabs {
+    display: none;
+}
+
 .crash-game {
     display: flex;
     flex-direction: column;
@@ -1072,16 +1076,78 @@
     }
 }
 
-@media (max-width: 768px) {
-    .crash-game .game-container {
-        flex-direction: column;
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
+    .crash-game {
+        height: auto;
+        min-height: calc(100dvh - var(--mobile-header-height) - var(--mobile-nav-space) + 232px);
+        padding-bottom: 232px;
+        overflow: visible;
     }
 
-    .crash-game .crash-sidebar {
+    .crash-bet-sheet {
+        --mobile-sheet-collapsed-height: 232px;
+    }
+
+    .crash-game .game-container {
+        display: block;
+        overflow: visible;
+    }
+
+    .crash-game .game-display {
         width: 100%;
-        min-width: 100%;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border-color) !important;
+        min-height: 420px;
+        overflow: visible;
+    }
+
+    .crash-bet-sheet .crash-sidebar {
+        width: 100%;
+        min-width: 0;
+        padding: 10px 12px 0;
+        border: 0 !important;
+    }
+
+    .crash-bet-sheet[data-state='collapsed'] .betting-panel-3d,
+    .crash-bet-sheet[data-state='collapsed'] .bet-form {
+        gap: 8px;
+    }
+
+    .crash-bet-sheet[data-state='collapsed'] .form-group {
+        margin-bottom: 0;
+    }
+
+    .crash-bet-sheet .bet-button {
+        min-height: 48px;
+    }
+
+    .crash-mobile-tabs {
+        display: block;
+        padding: 10px 12px 18px;
+    }
+
+    .crash-mobile-tabs [role='tablist'] {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-bottom: 10px;
+    }
+
+    .crash-mobile-tabs [role='tab'] {
+        min-height: 44px;
+        border: 1px solid var(--border-default);
+        border-radius: 8px;
+        background: var(--surface-1);
+        color: var(--text-secondary);
+    }
+
+    .crash-mobile-tabs [aria-selected='true'] {
+        border-color: var(--primary);
+        color: var(--text-primary);
+    }
+
+    .crash-game .game-history-bar .history-pills-scroll {
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        touch-action: pan-x;
     }
 
     .crash-game .chart-container-antd .multiplier-title {
@@ -1090,6 +1156,18 @@
 
     .crash-game .chart-container-antd .multiplier-suffix {
         font-size: 32px;
+    }
+
+    .mobile-game-modal .ant-modal {
+        width: calc(100vw - 24px) !important;
+        max-width: none;
+        margin: 12px auto;
+        padding-bottom: 0;
+    }
+
+    .mobile-game-modal .ant-modal-content {
+        max-height: calc(100dvh - 24px);
+        overflow: auto;
     }
 }
 

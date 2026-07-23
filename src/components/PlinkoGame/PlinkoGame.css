@@ -41,7 +41,7 @@
 
 .plinko-page .big-win-icon {
     font-size: 64px;
-    animation: plinkoBounce 0.6s ease infinite;
+    animation: plinkoFloat 1.2s ease-in-out infinite;
 }
 
 .plinko-page .big-win-title {
@@ -64,10 +64,7 @@
 .plinko-page .big-win-multiplier {
     font-size: 72px;
     font-weight: 900;
-    background: linear-gradient(135deg, #ffd700, #ff6b35);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffd700;
     animation: glow 1s ease infinite alternate;
 }
 
@@ -137,7 +134,7 @@
     }
 }
 
-@keyframes plinkoBounce {
+@keyframes plinkoFloat {
 
     0%,
     100% {
@@ -145,7 +142,7 @@
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-8px);
     }
 }
 
@@ -1090,5 +1087,66 @@
 
     .plinko-page .big-win-payout {
         font-size: 24px;
+    }
+}
+
+@media (max-width: 768px), (max-width: 932px) and (orientation: landscape) and (hover: none) {
+    .plinko-page {
+        height: auto;
+        min-height: calc(100dvh - var(--mobile-header-height) - var(--mobile-nav-space) + 196px);
+        padding-bottom: 196px;
+        overflow: visible;
+    }
+
+    .plinko-page .plinko-main,
+    .plinko-page .plinko-container {
+        overflow: visible;
+    }
+
+    .plinko-page .plinko-container {
+        display: block;
+    }
+
+    .plinko-page .plinko-game-wrapper {
+        width: 100%;
+        min-height: 0;
+    }
+
+    .plinko-bet-sheet .plinko-sidebar-wrapper,
+    .plinko-bet-sheet .sidebar {
+        width: 100%;
+        min-width: 0;
+        max-height: none;
+    }
+
+    .plinko-page .recent-plays-list {
+        display: flex;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        touch-action: pan-x;
+    }
+
+    .plinko-page .recent-plays-list > * {
+        flex: 0 0 auto;
+    }
+
+    .plinko-page .debug-path-row {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+
+    .mobile-game-modal .ant-modal {
+        width: calc(100vw - 24px) !important;
+        max-width: none;
+        margin: 12px auto;
+        padding-bottom: 0;
+    }
+
+    .mobile-game-modal .ant-modal-content {
+        max-height: calc(100dvh - 24px);
+        overflow: auto;
     }
 }
