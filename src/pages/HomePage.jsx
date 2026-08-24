@@ -8,11 +8,11 @@ const games = [
     { id: 'limbo', name: 'Limbo', comingSoon: true },
 ]
 
-const categories = ['Stake Originals', 'Popular', 'New', 'Slots', 'Live Casino', 'Table Games', 'Jackpot', 'Providers']
+const categories = ['Bettune Originals', 'Popular', 'New', 'Slots', 'Live Casino', 'Table Games', 'Jackpot', 'Providers']
 
 function GameCard({ game }) {
     const cardContent = <>
-        <div className="stake-card-image">
+        <div className="bettune-card-image">
             {game.image ? (
                 <img src={game.image} alt={`${game.name} game`} className="game-art-image" />
             ) : (
@@ -22,7 +22,7 @@ function GameCard({ game }) {
             )}
             {!game.comingSoon && <div className="card-overlay"><span className="play-btn" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="black"><path d="M8 5v14l11-7z" /></svg></span></div>}
         </div>
-        <div className="stake-card-footer">
+        <div className="bettune-card-footer">
             <div>
                 <span className="game-name">{game.name}</span>
                 {game.rtp && <div className="game-meta"><span>{game.rtp}</span><span>{game.volatility}</span></div>}
@@ -31,13 +31,13 @@ function GameCard({ game }) {
         </div>
     </>
 
-    if (game.comingSoon) return <div className="stake-card is-coming-soon">{cardContent}</div>
+    if (game.comingSoon) return <div className="bettune-card is-coming-soon">{cardContent}</div>
 
-    return <Link to={game.path} className="stake-card">{cardContent}</Link>
+    return <Link to={game.path} className="bettune-card">{cardContent}</Link>
 }
 
 function HomePage() {
-    const focusGames = () => requestAnimationFrame(() => document.getElementById('stake-originals')?.focus())
+    const focusGames = () => requestAnimationFrame(() => document.getElementById('bettune-originals')?.focus())
 
     return (
         <div className="home-page-container">
@@ -52,7 +52,7 @@ function HomePage() {
                         <p className="hero-description">Instant play. Provably fair. Virtual points only.</p>
                         <div className="hero-actions">
                             <button type="button" className="hero-primary-button">Play now</button>
-                            <a className="hero-secondary-link" href="#stake-originals" onClick={focusGames}>Browse games <span aria-hidden="true">→</span></a>
+                            <a className="hero-secondary-link" href="#bettune-originals" onClick={focusGames}>Browse games <span aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>
@@ -66,13 +66,13 @@ function HomePage() {
                 </div>
             </nav>
 
-            <section id="stake-originals" className="home-section" tabIndex="-1">
+            <section id="bettune-originals" className="home-section" tabIndex="-1">
                 <div className="section-header-copy">
                     <p className="section-kicker">Play now</p>
-                    <h2>Stake Originals</h2>
+                    <h2>Bettune Originals</h2>
                     <p>Four fast games. Pick your style and play with virtual points.</p>
                 </div>
-                <div className="stake-games-grid">
+                <div className="bettune-games-grid">
                     {games.map((game) => <GameCard key={game.id} game={game} />)}
                 </div>
             </section>

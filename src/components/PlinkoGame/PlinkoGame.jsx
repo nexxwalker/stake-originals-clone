@@ -606,7 +606,7 @@ function PlinkoGame() {
                                 </Tooltip>
                             </Space>
 
-                            <span className="logo" style={{ color: 'var(--text-primary)' }}>Stake</span>
+                            <span className="logo" style={{ color: 'var(--text-primary)' }}>Bettune</span>
 
                             <Button
                                 type="text"
