@@ -221,7 +221,7 @@ function DinoGame() {
         // 0.99 is 99% RTP (Return To Player) -> 1% house edge
         const pureMultiplier = 0.99 / probability;
 
-        // Floor to 2 decimals like Stake
+        // Floor to 2 decimals like Bettune
         return parseFloat((Math.floor(pureMultiplier * 100) / 100).toFixed(2));
     }, [difficulty]);
 
@@ -925,7 +925,7 @@ function DinoGame() {
                                     <Button type="text" icon={<BugOutlined style={{ color: isDebugMode ? 'var(--primary)' : undefined }} />} className={`control-btn ${isDebugMode ? 'active' : ''}`} onClick={() => setIsDebugMode(!isDebugMode)} />
                                 </Tooltip>
                             </Space>
-                            <span className="logo" style={{ color: 'var(--text-primary)' }}>Stake</span>
+                            <span className="logo" style={{ color: 'var(--text-primary)' }}>Bettune</span>
                             <Button type="text" icon={<SafetyCertificateOutlined />} className="fairness-btn" onClick={() => setFairnessModalOpen(true)}>
                                 Fairness
                             </Button>

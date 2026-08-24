@@ -1,13 +1,13 @@
-# Open Stake - Crypto Casino Clone
+# Bettune - Crypto Casino Clone
 
 > Looking for the previous version? View it on the [`backup-before-arcade` branch](https://github.com/tanh1c/stake-originals-clone/tree/backup-before-arcade).
 
 <p align="center">
-  <img src="./docs/images/banner.png" alt="Open Stake preview banner" />
+  <img src="./docs/images/banner.png" alt="Bettune preview banner" />
 </p>
 
 <p align="center">
-  <strong>Open-source Stake Originals-inspired game platform built with React, Vite, and modern frontend tooling.</strong>
+  <strong>Open-source Bettune Originals-inspired game platform built with React, Vite, and modern frontend tooling.</strong>
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 
 ## Overview
 
-**Open Stake** is an open-source, high-performance web platform featuring pixel-perfect clones of popular crypto casino-style games inspired by Stake Originals.
+**Bettune** is an open-source, high-performance web platform featuring pixel-perfect clones of popular crypto casino-style games inspired by Stake Originals.
 
 The project focuses on:
 
@@ -43,7 +43,7 @@ The project focuses on:
 ### Home / Game Lobby
 
 <p align="center">
-  <img src="./docs/images/lobby.png" alt="Open Stake game lobby preview" />
+  <img src="./docs/images/lobby.png" alt="Bettune game lobby preview" />
 </p>
 
 ### Gameplay Screens
@@ -261,7 +261,7 @@ Potential future improvements:
 - [ ] Add fairness verification page
 - [ ] Add mobile-first layout polish
 - [ ] Add sound effects and settings panel
-- [ ] Add more Stake Originals-inspired games
+- [ ] Add more Bettune Originals-inspired games
 - [ ] Improve documentation for each game algorithm
 
 ---

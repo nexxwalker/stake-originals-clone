@@ -62,7 +62,7 @@ function Header({ menuOpen, menuButtonRef, onMenuClick }) {
         <header className={`header ${isHomePage ? 'header-home' : ''}`}>
             <div className="header-left">
                 <Link to="/" className="logo-link">
-                    <span className="logo" style={{ color: 'var(--text-primary)' }}>Stake</span>
+                    <span className="logo" style={{ color: 'var(--text-primary)' }}>Bettune</span>
                 </Link>
             </div>
 
