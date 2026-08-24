@@ -519,7 +519,9 @@ function DinoGame() {
                     ],
                 },
                 options: {
-                    responsive: true,
+                    // The drawer controls the chart container size. Disabling Chart.js's
+                    // ResizeObserver avoids feedback loops while the drawer animates.
+                    responsive: false,
                     maintainAspectRatio: false,
                     animations: { y: { duration: 0 } },
                     interaction: { intersect: false, mode: 'index' },
